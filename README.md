@@ -1,5 +1,6 @@
 # aapt-cmake-build
-构建android-sdk/build-tools下的一些工具，比如aapt aapt2 aidl zipalign...支持在arm平台上进行编译，支持直接用手机进行编译，我本人就是用的Termux，然后安装aarch64版本的archLinux来编译的，当然也可以装其他的Linux发行版本Ubuntu Debian Kali...！
+构建android-sdk/build-tools下的一些工具，比如aapt aapt2 aidl zipalign...支持在arm平台上进行编译，支持直接用手机进行编译，我本人就是用的Termux，然后安装aarch64版本的archLinux来编译的，当然也可以装其他的Linux发行版本Ubuntu Debian Kali...
+如果你还需要其他的一些tools，adb fastboot dex等等，只需要在script下增加相应的工具的cmake脚本就OK了！
 
 下面放两张用Termux编译的图片
 ![image](https://raw.githubusercontent.com/Lzhiyong/aapt-cmake-build/master/screenshot/termux01.png)
@@ -52,6 +53,7 @@ mv android-8.1 android-p
 ```
 修改CMakeLists.txt
 set(AOSP android-p)
+
 
 ##### 最后感谢lizhangqu
  [lizhangqu](https://github.com/lizhangqu/aapt-cmake-buildscript.git)
