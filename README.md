@@ -12,7 +12,7 @@
 
 aapt aapt2 aidl aidl-cpp 是静态编译的可以在安卓上直接执行，zipalign不是静态链接的(应该也是可以静态链接的)，所以只能在Linux环境下执行
 
-####如何编译
+#### 如何编译
 安装一些必要的工具
 ```bash
 pacman -S clang git cmake bison flex curl python2  #archLinux
@@ -20,7 +20,9 @@ pacman -S clang git cmake bison flex curl python2  #archLinux
  apt install clang git cmake bison flex curl python2 #ubuntu
 ```
 
-下载Android源码树  \n安装repo
+下载Android源码树  
+
+安装repo
 ```bash
 mkdir ~/bin 
 PATH=~/bin:$PATH 
@@ -41,6 +43,7 @@ repo sync -j8
 ./build.sh
 ```
 如果你下载不是android-8.1的源码，你需要修改aapt-cmake-build/CMakeLists.txt
+
 set(AOSP android-8.1)
 改成你自己下载的安卓对应的版本，
 比如我下载的是android p的源码android-p
