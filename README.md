@@ -28,7 +28,7 @@ apt install clang git cmake bison flex curl python2 #ubuntu
 ```
 
 
-####安装repo
+#### 安装repo
 ```bash
 mkdir ~/bin 
 PATH=~/bin:$PATH 
@@ -36,7 +36,7 @@ curl https://storage.googleapis.com/git-repo-downloads/repo > ~/bin/repo
 chmod a+x ~/bin/repo
 ```
 
-####初始化repo项目
+#### 初始化repo项目
 ```bash
 #进入安卓源码目录 
 cd aapt-cmake-build/android-8.1
@@ -59,4 +59,5 @@ set(AOSP android-9.0)
 ```
 
 项目来源于[lizhangqu](https://github.com/lizhangqu/aapt-cmake-buildscript.git)
+
 
