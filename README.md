@@ -1,16 +1,19 @@
 # aapt-cmake-build
-构建android-sdk/build-tools下的一些工具，比如aapt aapt2 aidl zipalign...支持在arm平台上进行编译，支持直接用手机进行编译，我本人就是用的Termux，然后安装aarch64版本的archLinux来编译的，当然也可以装其他的Linux发行版本Ubuntu Debian Kali...
-如果你还需要其他的一些tools，adb fastboot dex等等，只需要在script下增加相应的工具的cmake脚本就OK了！
-
-下面放两张用Termux编译的图片
-![image](https://raw.githubusercontent.com/Lzhiyong/aapt-cmake-build/master/screenshot/termux01.png)
+构建android-sdk/build-tools下的一些工具，比如aapt aapt2 aidl zipalign...，支持用Termux进行编译，想要成功编译，Termux需要安装aarch64版本的Linux，推荐ArchLinux，当然也可以装其他的Linux发行版本Ubuntu Debian Kali都可以...
+如果你还需要其他的一些tools，adb fastboot dex等等，只需要在script下增加相应的工具的cmake脚本就可以！
 
 
-====================================
+Build some tools under android-sdk / build-tools, such as aapt aapt2 aidl zipalign ..., which supports compiling with Termux. To successfully compile, Termux needs to install aarch64 version of Linux. ArchLinux is recommended, of course, you can also install other  The Linux distribution Ubuntu Debian Kali works ...
+If you need other tools, adb fastboot dex, etc., just add the cmake script of the corresponding tool under script!
 
-![image](https://raw.githubusercontent.com/Lzhiyong/aapt-cmake-build/master/screenshot/termux02.png)
 
+screenshot1.jpg
+![image](https://raw.githubusercontent.com/Lzhiyong/aapt-cmake-build/master/screenshot/screenshot1.jpg)
 
+screenshot2.jpg
+![image](https://raw.githubusercontent.com/Lzhiyong/aapt-cmake-build/master/screenshot/screenshot2.jpg)
+
+ **** 
 aapt aapt2 aidl aidl-cpp 是静态编译的可以在安卓上直接执行，zipalign不是静态链接的(应该也是可以静态链接的)，所以只能在Linux环境下执行
 
 #### 如何编译
@@ -43,19 +46,15 @@ repo sync -j8
 #源码下载完之后直接执行
 ./build.sh
 ```
+
 如果你下载不是android-8.1的源码，你需要修改aapt-cmake-build/CMakeLists.txt
-
-set(AOSP android-8.1)
-改成你自己下载的安卓对应的版本，
-比如我下载的是android p的源码android-p
+set(AOSP android-8.1) 改成你自己下载对应的安卓版本
 ```bash
-mv android-8.1 android-p
+# mv android-8.1 android-9.0
+# 修改CMakeLists.txt
+set(AOSP android-9.0)
 ```
-修改CMakeLists.txt
-set(AOSP android-p)
 
-
-##### 最后感谢lizhangqu
- [lizhangqu](https://github.com/lizhangqu/aapt-cmake-buildscript.git)
+项目来源于[lizhangqu](https://github.com/lizhangqu/aapt-cmake-buildscript.git)
 
 
