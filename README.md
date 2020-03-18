@@ -1,6 +1,6 @@
 # aapt-cmake-build
 构建android-sdk/build-tools下的一些工具，比如aapt aapt2 aidl zipalign...，支持用Termux进行编译，想要成功编译，Termux需要安装aarch64版本的Linux，推荐ArchLinux，当然也可以装其他的Linux发行版本Ubuntu Debian Kali都可以...
-如果你还需要其他的一些tools，adb fastboot dex等等，只需要在script下增加相应的工具的cmake脚本就可以！
+如果你还需要其他的一些tools，adb fastboot dex等等，只需要在script下增加相应的工具的CMakeLists.txt就可以！
 
 
 Build some tools under android-sdk / build-tools, such as aapt aapt2 aidl zipalign ..., which supports compiling with Termux. To successfully compile, Termux needs to install aarch64 version of Linux. ArchLinux is recommended, of course, you can also install other  The Linux distribution Ubuntu Debian Kali works ...
