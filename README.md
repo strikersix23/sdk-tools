@@ -58,6 +58,6 @@ set(AOSP android-8.1) 改成你自己下载对应的安卓版本
 set(AOSP android-9.0)
 ```
 
-项目来源于[lizhangqu](https://github.com/lizhangqu/aapt-cmake-buildscript.git)
+项目参考于[lizhangqu](https://github.com/lizhangqu/aapt-cmake-buildscript.git)
 
 
