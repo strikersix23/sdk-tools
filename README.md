@@ -7,6 +7,7 @@ Build some tools under android-sdk / build-tools, such as aapt aapt2 aidl zipali
  is recommended, of course, you can also install other  The Linux distribution Ubuntu Debian Kali works ...
 If you need other tools, adb fastboot dex, etc., just add the cmake script of the corresponding tool under aapt-cmake-build/script.
 
+
  **** 
 ### 如何编译
 
@@ -31,9 +32,16 @@ repo sync -c -j4
 ./build.sh
 ```
 
+
 如果你下载不是android-8.1的源码，你需要修改aapt-cmake-build/CMakeLists.txt
 
-set(AOSP android-8.1) 改成你自己下载对应的安卓版本
+set(AOSP android-8.1) 改成你自己下载对应的安卓版本.
+
+每个安卓版本源码都会有很大的改动, 如果就这样直接编译肯定是会报错的
+
+你需要参照Android.bp文件，修改对应的CMakeLists.txt
+
+
 ```bash
 # mv android-8.1 android-9.0
 # modify CMakeLists.txt
@@ -41,6 +49,8 @@ set(AOSP android-9.0)
 ```
 
 项目参考于[lizhangqu](https://github.com/lizhangqu/aapt-cmake-buildscript.git)
+
+
 
  **** 
 screenshot1.jpg
