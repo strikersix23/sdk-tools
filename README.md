@@ -42,6 +42,14 @@ set(AOSP android-8.1) 改成你自己下载对应的安卓版本.
 你需要参照Android.bp文件，修改对应的CMakeLists.txt
 
 
+If you download the source code that is not android-8.1, you need to modify aapt-cmake-build/CMakeLists.txt
+
+set (AOSP android-8.1) Change to download the corresponding Android version.
+
+the source code of each Android version has been changed, and direct compilation will fail.
+
+You need to refer to the Android.bp file and modify the corresponding CMakeLists.txt
+
 ```bash
 # mv android-8.1 android-9.0
 # modify CMakeLists.txt
