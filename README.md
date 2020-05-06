@@ -28,7 +28,11 @@ repo init -u https://aosp.tuna.tsinghua.edu.cn/platform/manifest -b master
 
 repo sync -c -j4
 
-# download finish
+# download finish, exit ArchLinux
+exit
+
+
+# start building...
 cd build-tools && mkdir build
 
 cmake -G 'Ninja' \
