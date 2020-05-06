@@ -1,7 +1,7 @@
 Building android-sdk/build-tools, such as aapt aapt2 aidl zipalign ... which supports compiling with Termux. 
 
 Termux needs to install aarch64 version of Linux. [TermuxArch](https://github.com/SDRausty/TermuxArch) 
-is recommended, of course, you can also install other  The Linux distribution Ubuntu Debian Kali works ...
+is recommended, of course you can also install other.  The Linux distribution Ubuntu Debian Kali works ...
 
 ArchLinux only downloads source code, we are not using it to compile.
 
