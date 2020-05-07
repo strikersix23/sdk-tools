@@ -6,7 +6,7 @@ project(protobuf)
 set(PROTOBUF ${CMAKE_SOURCE_DIR}/${AOSP}/external/protobuf)
 
 set(LIBPROTOBUF_CPP_LITE_SRC_FILES
-	${PROTOBUF}/src/google/protobuf/stubs/atomicops_internals_x86_gcc.cc
+    ${PROTOBUF}/src/google/protobuf/stubs/atomicops_internals_x86_gcc.cc
     ${PROTOBUF}/src/google/protobuf/stubs/atomicops_internals_x86_msvc.cc
     ${PROTOBUF}/src/google/protobuf/stubs/bytestream.cc
     ${PROTOBUF}/src/google/protobuf/stubs/common.cc
@@ -30,12 +30,12 @@ set(LIBPROTOBUF_CPP_LITE_SRC_FILES
     ${PROTOBUF}/src/google/protobuf/io/zero_copy_stream.cc
     ${PROTOBUF}/src/google/protobuf/io/zero_copy_stream_impl.cc
     ${PROTOBUF}/src/google/protobuf/io/zero_copy_stream_impl_lite.cc
-	)
+    )
 
 
 set(LIBPROTOBUF_CPP_FULL_SRC_FILES
-	${LIBPROTOBUF_CPP_LITE_SRC_FILES}
-	${PROTOBUF}/src/google/protobuf/any.pb.cc
+    ${LIBPROTOBUF_CPP_LITE_SRC_FILES}
+    ${PROTOBUF}/src/google/protobuf/any.pb.cc
     ${PROTOBUF}/src/google/protobuf/api.pb.cc
     ${PROTOBUF}/src/google/protobuf/stubs/mathlimits.cc
     ${PROTOBUF}/src/google/protobuf/any.cc
@@ -87,11 +87,11 @@ set(LIBPROTOBUF_CPP_FULL_SRC_FILES
     ${PROTOBUF}/src/google/protobuf/util/message_differencer.cc
     ${PROTOBUF}/src/google/protobuf/util/time_util.cc
     ${PROTOBUF}/src/google/protobuf/util/type_resolver_util.cc
-	)
+    )
 
 
 set(APROTOC_SRC_FILES
-	${PROTOBUF}/src/google/protobuf/any.cc
+    ${PROTOBUF}/src/google/protobuf/any.cc
     ${PROTOBUF}/src/google/protobuf/arena.cc
     ${PROTOBUF}/src/google/protobuf/arenastring.cc
     ${PROTOBUF}/src/google/protobuf/descriptor.cc
@@ -234,14 +234,14 @@ set(APROTOC_SRC_FILES
     ${PROTOBUF}/src/google/protobuf/stubs/strutil.cc
     ${PROTOBUF}/src/google/protobuf/stubs/substitute.cc
     ${PROTOBUF}/src/google/protobuf/stubs/stringprintf.cc
-	)
+    )
 
 
 set(CMAKE_CXX_FLAGS "${GLOBAL_CXX_FLAGS} -frtti -Wall -Wno-error=format -Wno-error=format-extra-args -Wno-error=ignored-qualifiers -Wno-error=sign-promo -Wno-unused-function -DHAVE_ZLIB=1")
 
 include_directories(
-	${protobuf_headers}
-	)
+    ${protobuf_headers}
+    )
 
 add_library(protobuf-cpp-lite STATIC ${LIBPROTOBUF_CPP_LITE_SRC_FILES})
 target_link_libraries(protobuf-cpp-lite)
