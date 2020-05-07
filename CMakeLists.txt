@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 3.4.1)
 project(build-tools)
 
 # android source code 
-set(AOSP android-10)
+set(AOSP android-11)
 
 
 # headers files
