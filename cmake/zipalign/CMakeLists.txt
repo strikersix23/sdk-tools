@@ -5,21 +5,21 @@ project(zipalign)
 set(ZIPALIGN ${CMAKE_SOURCE_DIR}/${AOSP}/build/tools/zipalign)
 
 set(ZIPALIGN_SRC_FILES
-	${ZIPALIGN}/ZipAlign.cpp
+    ${ZIPALIGN}/ZipAlign.cpp
     ${ZIPALIGN}/ZipEntry.cpp
     ${ZIPALIGN}/ZipFile.cpp
 	)
 
 include_directories(
-	${zlib_headers}
-	${libzopfli_headers}
-	${libutils_headers}
-	${libcutils_headers}
-	${androidfw_headers}
-	${liblog_headers}
-	${libbase_headers}
-	${libziparchive_headers}
-	)
+    ${zlib_headers}
+    ${libzopfli_headers}
+    ${libutils_headers}
+    ${libcutils_headers}
+    ${androidfw_headers}
+    ${liblog_headers}
+    ${libbase_headers}
+    ${libziparchive_headers}
+    )
 
 set(CMAKE_CXX_FLAGS "${GLOBAL_CXX_FLAGS}")
 
