@@ -19,5 +19,6 @@ include_directories(
 
 set(CMAKE_CXX_FLAGS "${GLOBAL_CXX_FLAGS} -DJSON_USE_EXCEPTION=0 -Wno-implicit-fallthrough")
 
+
 add_library(jsoncpp STATIC ${LIBJSONCPP_SRC_FILES})
 target_link_libraries(jsoncpp)
