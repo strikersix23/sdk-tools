@@ -7,7 +7,7 @@ set(ZLIB ${CMAKE_SOURCE_DIR}/${AOSP}/external/zlib)
 
 
 set(ZLIB_SRC_FILES
-	${ZLIB}/src/adler32.c
+    ${ZLIB}/src/adler32.c
     ${ZLIB}/src/compress.c
     ${ZLIB}/src/crc32.c
     ${ZLIB}/src/deflate.c
@@ -22,7 +22,7 @@ set(ZLIB_SRC_FILES
     ${ZLIB}/src/trees.c
     ${ZLIB}/src/uncompr.c
     ${ZLIB}/src/zutil.c
-	)
+    )
 
 set(CMAKE_C_FLAGS "${GLOBAL_C_FLAGS} -O3 -DUSE_MMAP -DZLIB_CONST -Wall -Werror")
 
