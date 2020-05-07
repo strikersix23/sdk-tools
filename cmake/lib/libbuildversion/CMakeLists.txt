@@ -6,15 +6,15 @@ set(LIBUILDVERSION ${CMAKE_SOURCE_DIR}/${AOSP}/build/soong/cc/libbuildversion)
 
 
 set(LIBUILDVERSION_SRC_FILES
-	${LIBUILDVERSION}/libbuildversion.cpp
-	)
+    ${LIBUILDVERSION}/libbuildversion.cpp
+    )
 
 
 set(CMAKE_CXX_FLAGS "${GLOBAL_CXX_FLAGS} -fvisibility=hidden")
 
 include_directories(
-	${libbuildversion_headers}
-	)
+    ${libbuildversion_headers}
+    )
 
 
 add_library(buildversion STATIC ${LIBUILDVERSION_SRC_FILES})
