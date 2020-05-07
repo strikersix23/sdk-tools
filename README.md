@@ -4,12 +4,12 @@ update android version to android-11
 
 Building android-sdk/build-tools, such as aapt aapt2 aidl zipalign ... which supports compiling with Termux. 
 
-Termux needs to install aarch64 version of Linux. [TermuxArch](https://github.com/SDRausty/TermuxArch) 
-is recommended, of course you can also install other.  The Linux distribution Ubuntu Debian Kali works ...
+In order to download the source code more conveniently, termux needs to install aarch64 version of Linux. [TermuxArch](https://github.com/SDRausty/TermuxArch) 
+is recommended, Of course you can also install other Linux distributions, ubuntu debian kali ... etc.
 
 ArchLinux only downloads source code, we are not using it to compile.
 
-If you need other tools, adb fastboot dexdump  etc., just add the cmake script of the corresponding tool under build-tools/cmake
+If you need other tools, adb fastboot dexdump  etc., just add the cmake script of the corresponding tool under build-tools/cmake.
 
 you need ndk toolchain to compile.
 
@@ -37,7 +37,7 @@ exit
 
 
 # start building...
-cd build-tools && mkdir build
+cd build-tools && mkdir build && cd build
 
 cmake -G 'Ninja' \
 	-DCMAKE_C_COMPILER=your_path/aarch64-linux-android/bin/clang \
