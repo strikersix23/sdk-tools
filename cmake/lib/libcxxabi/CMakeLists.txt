@@ -6,7 +6,7 @@ set(LIBCXXABI ${CMAKE_SOURCE_DIR}/${AOSP}/external/libcxxabi)
 
 # libcxxabi src files
 set(LIBCXXABI_SRC_FILES
-	${LIBCXXABI}/src/abort_message.cpp
+    ${LIBCXXABI}/src/abort_message.cpp
     ${LIBCXXABI}/src/cxa_aux_runtime.cpp
     ${LIBCXXABI}/src/cxa_default_handlers.cpp
     ${LIBCXXABI}/src/cxa_demangle.cpp
@@ -19,13 +19,13 @@ set(LIBCXXABI_SRC_FILES
     ${LIBCXXABI}/src/cxa_unexpected.cpp
     ${LIBCXXABI}/src/cxa_vector.cpp
     ${LIBCXXABI}/src/cxa_virtual.cpp
-	${LIBCXXABI}/src/fallback_malloc.cpp
+    ${LIBCXXABI}/src/fallback_malloc.cpp
     ${LIBCXXABI}/src/private_typeinfo.cpp
     ${LIBCXXABI}/src/stdlib_exception.cpp
     ${LIBCXXABI}/src/stdlib_new_delete.cpp
     ${LIBCXXABI}/src/stdlib_stdexcept.cpp
     ${LIBCXXABI}/src/stdlib_typeinfo.cpp
-	)
+    )
 
 
 set(CMAKE_CXX_FLAGS "${GLOBAL_CXX_FLAGS} -frtti -fexceptions -Wextra -Wno-unused-function -Wno-implicit-fallthrough -DHAVE___CXA_THREAD_ATEXIT_IMPL")
