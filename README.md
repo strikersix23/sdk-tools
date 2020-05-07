@@ -1,6 +1,6 @@
 aapt-cmake-build has been renamed to build-tools
 
-update android version to android-11 
+update android version to android-11
 
 Building android-sdk/build-tools, such as aapt aapt2 aidl zipalign ... which supports compiling with Termux. 
 
@@ -11,7 +11,7 @@ ArchLinux only downloads source code, we are not using it to compile.
 
 If you need other tools, adb fastboot dexdump  etc., just add the cmake script of the corresponding tool under build-tools/cmake
 
-you need ndk toolchain to compile
+you need ndk toolchain to compile.
 
 download [aarch64-linux-android](https://github.com/Lzhiyong/termux-ndk/releases)
 
