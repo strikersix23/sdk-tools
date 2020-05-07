@@ -9,7 +9,7 @@ is recommended, Of course you can also install other Linux distributions, ubuntu
 
 ArchLinux only downloads source code, we are not using it to compile.
 
-If you need other tools, adb fastboot dexdump  etc., just add the cmake script of the corresponding tool under build-tools/cmake.
+If you need other tools, adb fastboot dexdump ...etc, just add the cmake script of the corresponding tool under build-tools/cmake
 
 you need ndk toolchain to compile.
 
