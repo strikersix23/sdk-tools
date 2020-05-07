@@ -23,6 +23,8 @@ set(LIBUTILS_SRC_FILES
     ${LIBUTILS}/Unicode.cpp
     ${LIBUTILS}/VectorImpl.cpp
     ${LIBUTILS}/misc.cpp
+	${LIBUTILS}/Trace.cpp
+	${LIBUTILS}/Looper.cpp
 	)
 
 
@@ -38,6 +40,9 @@ include_directories(
 	)
 
 set(CMAKE_CXX_FLAGS "${GLOBAL_CXX_FLAGS}")
+
+add_library(utilscallstack STATIC ${LIBUTILS}/CallStack.cpp)
+target_link_libraries(utilscallstack)
 
 add_library(utils STATIC ${LIBUTILS_SRC_FILES})
 target_link_libraries(utils)
