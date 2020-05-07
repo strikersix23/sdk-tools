@@ -109,23 +109,23 @@ set(zipalign_headers
 
 set(libprocessgroup_headers
     ${CMAKE_SOURCE_DIR}/${AOSP}/system/core/libprocessgroup
-	${CMAKE_SOURCE_DIR}/${AOSP}/system/core/libprocessgroup/include
-	${CMAKE_SOURCE_DIR}/${AOSP}/system/core/libprocessgroup/cgrouprc/include
-	${CMAKE_SOURCE_DIR}/${AOSP}/system/core/libprocessgroup/cgrouprc_format/include
-	)
+    ${CMAKE_SOURCE_DIR}/${AOSP}/system/core/libprocessgroup/include
+    ${CMAKE_SOURCE_DIR}/${AOSP}/system/core/libprocessgroup/cgrouprc/include
+    ${CMAKE_SOURCE_DIR}/${AOSP}/system/core/libprocessgroup/cgrouprc_format/include
+    )
 
 set(libvndksupport_headers
     ${CMAKE_SOURCE_DIR}/${AOSP}/system/core/libvndksupport/include
-	${CMAKE_SOURCE_DIR}/${AOSP}/system/core/libvndksupport/include/vndksupport
-	)
+    ${CMAKE_SOURCE_DIR}/${AOSP}/system/core/libvndksupport/include/vndksupport
+    )
 
 set(libjsoncpp_headers
-	${CMAKE_SOURCE_DIR}/${AOSP}/external/jsoncpp/include
-	)
+    ${CMAKE_SOURCE_DIR}/${AOSP}/external/jsoncpp/include
+    )
 	
 set(libbuildversion_headers
-	${CMAKE_SOURCE_DIR}/${AOSP}/build/soong/cc/libbuildversion/include
-	)
+    ${CMAKE_SOURCE_DIR}/${AOSP}/build/soong/cc/libbuildversion/include
+    )
 
 
 set(GLOBAL_C_FLAGS "-Wall -fPIC -std=c11")
@@ -135,7 +135,7 @@ set(GLOBAL_CXX_FLAGS "-isystem ${libcxx_headers} -isystem ${libcxxabi_headers} -
 
 # default use libcxx and libcxxabi
 include_directories(
-	${libcxx_headers}
+    ${libcxx_headers}
     ${libcxxabi_headers}	
 )
 
