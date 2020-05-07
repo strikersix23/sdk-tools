@@ -7,9 +7,9 @@ set(ANDROIDFW ${CMAKE_SOURCE_DIR}/${AOSP}/frameworks/base/libs/androidfw)
 
 
 set(ANDROIDFW_SRC_FILES
-	${ANDROIDFW}/ApkAssets.cpp
+    ${ANDROIDFW}/ApkAssets.cpp
     ${ANDROIDFW}/Asset.cpp
-	${ANDROIDFW}/AssetDir.cpp
+    ${ANDROIDFW}/AssetDir.cpp
     ${ANDROIDFW}/AssetManager.cpp
     ${ANDROIDFW}/AssetManager2.cpp
     ${ANDROIDFW}/AttributeResolution.cpp
@@ -29,7 +29,7 @@ set(ANDROIDFW_SRC_FILES
     ${ANDROIDFW}/Util.cpp
     ${ANDROIDFW}/ZipFileRO.cpp
     ${ANDROIDFW}/ZipUtils.cpp
-	)
+    )
 	
 
 include_directories(
