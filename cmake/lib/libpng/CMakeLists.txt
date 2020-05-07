@@ -6,7 +6,7 @@ set(LIBPNG ${CMAKE_SOURCE_DIR}/${AOSP}/external/libpng)
 
 
 set(LIBPNG_SRC_FILES
-	${LIBPNG}/png.c
+    ${LIBPNG}/png.c
     ${LIBPNG}/pngerror.c
     ${LIBPNG}/pngget.c
     ${LIBPNG}/pngmem.c
@@ -24,12 +24,12 @@ set(LIBPNG_SRC_FILES
     ${LIBPNG}/arm/arm_init.c
     ${LIBPNG}/arm/filter_neon.S
     ${LIBPNG}/arm/filter_neon_intrinsics.c
-	)
+    )
 
 include_directories(
-	${libpng_headers}
-	${zlib_headers}
-	)
+    ${libpng_headers}
+    ${zlib_headers}
+    )
 
 set(CMAKE_CXX_FLAGS "${GLOBAL_CXX_FLAGS} -Wall -Werror -Wno-unused-parameter")
 
