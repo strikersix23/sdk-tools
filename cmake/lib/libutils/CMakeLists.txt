@@ -5,7 +5,7 @@ project(libutils)
 set(LIBUTILS ${CMAKE_SOURCE_DIR}/${AOSP}/system/core/libutils)
 
 set(LIBUTILS_SRC_FILES
-	${LIBUTILS}/FileMap.cpp
+    ${LIBUTILS}/FileMap.cpp
     ${LIBUTILS}/JenkinsHash.cpp
     ${LIBUTILS}/NativeHandle.cpp
     ${LIBUTILS}/Printer.cpp
@@ -23,21 +23,21 @@ set(LIBUTILS_SRC_FILES
     ${LIBUTILS}/Unicode.cpp
     ${LIBUTILS}/VectorImpl.cpp
     ${LIBUTILS}/misc.cpp
-	${LIBUTILS}/Trace.cpp
-	${LIBUTILS}/Looper.cpp
-	)
+    ${LIBUTILS}/Trace.cpp
+    ${LIBUTILS}/Looper.cpp
+    )
 
 
 include_directories(
-	${libutils_headers}
-	${liblog_headers}
-	${libcutils_headers}
-	${libbase_headers}
-	${libbacktrace_headers}
-	${libsystem_headers}
-	${libprocessgroup_headers}
-	${libvndksupport_headers}
-	)
+    ${libutils_headers}
+    ${liblog_headers}
+    ${libcutils_headers}
+    ${libbase_headers}
+    ${libbacktrace_headers}
+    ${libsystem_headers}
+    ${libprocessgroup_headers}
+    ${libvndksupport_headers}
+    )
 
 set(CMAKE_CXX_FLAGS "${GLOBAL_CXX_FLAGS}")
 
