@@ -5,20 +5,20 @@ project(aapt2)
 set(AAPT2 ${CMAKE_SOURCE_DIR}/${AOSP}/frameworks/base/tools/aapt2)
 
 set(TOOL_SRC_FILES
-	${AAPT2}/cmd/Command.cpp
-	${AAPT2}/cmd/Compile.cpp
+    ${AAPT2}/cmd/Command.cpp
+    ${AAPT2}/cmd/Compile.cpp
     ${AAPT2}/cmd/Convert.cpp
     ${AAPT2}/cmd/Diff.cpp
     ${AAPT2}/cmd/Dump.cpp
     ${AAPT2}/cmd/Link.cpp
     ${AAPT2}/cmd/Optimize.cpp
     ${AAPT2}/cmd/Util.cpp
-	)
+    )
 
 
 # libaapt2 static lib
 set(LIBAAPT2_STATIC_SRC_FILES
-	${AAPT2}/compile/IdAssigner.cpp
+    ${AAPT2}/compile/IdAssigner.cpp
     ${AAPT2}/compile/InlineXmlFormatParser.cpp
     ${AAPT2}/compile/NinePatch.cpp
     ${AAPT2}/compile/Png.cpp
@@ -93,26 +93,26 @@ set(LIBAAPT2_STATIC_SRC_FILES
     ${AAPT2}/Configuration.proto
     ${AAPT2}/Resources.proto
     ${AAPT2}/ResourcesInternal.proto
-	)
+    )
 
 
 
 # libaapt2_jni shared lib
 set(LIBAAPT2_JNI_SRC_FILES
-	${AAPT2}/jni/aapt2_jni.cpp
-	${TOOL_SRC_FILES}
-	)
+    ${AAPT2}/jni/aapt2_jni.cpp
+    ${TOOL_SRC_FILES}
+    )
 
 # aapt2
 set(AAPT2_SRC_FILES 
-	${AAPT2}/Main.cpp
-	${TOOL_SRC_FILES}
-	)
+    ${AAPT2}/Main.cpp
+    ${TOOL_SRC_FILES}
+    )
 
 
 include_directories(
-	${aapt2_headers}
-	${protobuf_headers}
+    ${aapt2_headers}
+    ${protobuf_headers}
     ${androidfw_headers}
     ${libbase_headers}
     ${libziparchive_headers}
@@ -125,14 +125,14 @@ include_directories(
     ${libpng_headers}
     ${expat_headers}
     ${libbuildversion_headers}
-	)
+    )
 
 
 message(STATUS "CMAKE_BINARY_DIR: ${CMAKE_BINARY_DIR}")
 
 # generate Resources.pb.h
 add_custom_target(Resources.pb.h
-	WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}/${AOSP}
+    WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}/${AOSP}
     COMMAND ${CMAKE_BINARY_DIR}/cmake/lib/protobuf/aprotoc frameworks/base/tools/aapt2/Resources.proto frameworks/base/tools/aapt2/Configuration.proto -cpp_out=frameworks/base/tools/aapt2
     DEPENDS aprotoc
     )
@@ -148,14 +148,14 @@ add_custom_target(ResourcesInternal.pb.h
 
 # check Resources.pb.cc
 if (EXISTS ${AAPT2}/Resources.pb.cc)
-	list(APPEND LIBAAPT2_STATIC_SRC_FILES ${AAPT2}/Resources.pb.cc)
+    list(APPEND LIBAAPT2_STATIC_SRC_FILES ${AAPT2}/Resources.pb.cc)
 else ()
-	message(STATUS "not found ${AAPT2}/Resources.pb.cc")
+    message(STATUS "not found ${AAPT2}/Resources.pb.cc")
 endif ()
 
 # check ResourcesInternal.pb.cc
 if (EXISTS ${AAPT2}/ResourcesInternal.pb.cc)
-	list(APPEND LIBAAPT2_STATIC_SRC_FILES ${AAPT2}/ResourcesInternal.pb.cc)
+    list(APPEND LIBAAPT2_STATIC_SRC_FILES ${AAPT2}/ResourcesInternal.pb.cc)
 else ()
     message(STATUS "not found ${AAPT2}/ResourcesInternal.pb.cc")
 endif ()
