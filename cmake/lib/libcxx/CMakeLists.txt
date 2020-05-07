@@ -6,7 +6,7 @@ set(LIBCXX ${CMAKE_SOURCE_DIR}/${AOSP}/external/libcxx)
 
 # libcxx src files
 set(LIBCXX_SRC_FILES
-	${LIBCXX}/src/algorithm.cpp
+    ${LIBCXX}/src/algorithm.cpp
     ${LIBCXX}/src/any.cpp
     ${LIBCXX}/src/bind.cpp
     ${LIBCXX}/src/charconv.cpp
@@ -36,29 +36,29 @@ set(LIBCXX_SRC_FILES
     ${LIBCXX}/src/valarray.cpp
     ${LIBCXX}/src/variant.cpp
     ${LIBCXX}/src/vector.cpp
-	)
+    )
 
 
 
 # libc++experimental
 set(C++_EXPERIMENTAL_SRC_FILES
-	${LIBCXX}/src/experimental/memory_resource.cpp
-	)
+    ${LIBCXX}/src/experimental/memory_resource.cpp
+    )
 
 
 # libc++fs
 set(LIBC++FS_SRC_FILES
-	${LIBCXX}/src/filesystem/directory_iterator.cpp
+    ${LIBCXX}/src/filesystem/directory_iterator.cpp
     ${LIBCXX}/src/filesystem/operations.cpp
-	)
+    )
 
 
 set(TEST_SRC_FILES
-	${LIBCXX}/libcxx_test_template.cpp
-	)
+    ${LIBCXX}/libcxx_test_template.cpp
+    )
+
 
 set(CMAKE_CXX_FLAGS  "${GLOBAL_CXX_FLAGS} -frtti -fexceptions -DLIBCXX_BUILDING_LIBCXXABI -D_LIBCPP_BUILDING_LIBRARY")
-
 
 add_library(c++experimental ${C++_EXPERIMENTAL_SRC_FILES})
 target_link_libraries(c++experimental)
