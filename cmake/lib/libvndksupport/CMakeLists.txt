@@ -6,14 +6,14 @@ set(LIBVNDKSUPPORT ${CMAKE_SOURCE_DIR}/${AOSP}/system/core/libvndksupport)
 
 
 set(LIBVNDKSUPPORT_SRC_FILES
-	${LIBVNDKSUPPORT}/linker.c
-	)
+    ${LIBVNDKSUPPORT}/linker.c
+    )
 
 
 include_directories(
-	${libvndksupport_headers}
-	${liblog_headers}
-	)
+    ${libvndksupport_headers}
+    ${liblog_headers}
+    )
 
 set(CMAKE_C_FLAGS "${GLOBAL_C_FLAGS}")
 
