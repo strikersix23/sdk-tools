@@ -28,15 +28,15 @@ set(LIBAAPT_STATIC_SRC_FILES
     ${AAPT}/XMLNode.cpp
     ${AAPT}/ZipEntry.cpp
     ${AAPT}/ZipFile.cpp
-	)
+    )
 
  
 # aapt
 set(AAPT_SRC_FILES ${AAPT}/Main.cpp)
 
 include_directories(
-	${aapt_headers}
-	${androidfw_headers}
+    ${aapt_headers}
+    ${androidfw_headers}
     ${libpng_headers}
     ${libutils_headers}
     ${liblog_headers}
@@ -48,7 +48,7 @@ include_directories(
     ${libsystem_headers}
     ${libbuildversion_headers}
     ${native_headers}
-	)
+    )
 
 set(CMAKE_CXX_FLAGS "${GLOBAL_CXX_FLAGS} -Wno-format-y2k -DSTATIC_ANDROIDFW_FOR_TOOLS -Wno-error=implicit-fallthrough")
 
