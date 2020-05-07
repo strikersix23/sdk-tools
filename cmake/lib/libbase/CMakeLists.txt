@@ -5,7 +5,7 @@ project(libbase)
 set(BASE ${CMAKE_SOURCE_DIR}/${AOSP}/system/core/base)
 
 set(LIBBASE_SRC_FILES
-	${BASE}/chrono_utils.cpp
+    ${BASE}/chrono_utils.cpp
     ${BASE}/cmsg.cpp
     ${BASE}/file.cpp
     ${BASE}/logging.cpp
@@ -18,7 +18,7 @@ set(LIBBASE_SRC_FILES
     ${BASE}/threads.cpp
     ${BASE}/test_utils.cpp
     ${BASE}/errors_unix.cpp
-	)
+    )
 
 
 include_directories(${libbase_headers})
