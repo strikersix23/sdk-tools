@@ -63,5 +63,4 @@ reference [lizhangqu](https://github.com/lizhangqu/aapt-cmake-buildscript.git)
 
  **** 
 screenshot.jpg
-
-
+![image](https://raw.githubusercontent.com/Lzhiyong/build-tools/master/screenshot/screenshot.jpg)
