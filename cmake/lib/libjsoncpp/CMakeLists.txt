@@ -6,15 +6,15 @@ set(LIBJSONCPP ${CMAKE_SOURCE_DIR}/${AOSP}/external/jsoncpp)
 
 
 set(LIBJSONCPP_SRC_FILES
-	${LIBJSONCPP}/src/lib_json/json_reader.cpp
+    ${LIBJSONCPP}/src/lib_json/json_reader.cpp
     ${LIBJSONCPP}/src/lib_json/json_value.cpp
     ${LIBJSONCPP}/src/lib_json/json_writer.cpp
-	)
+    )
 
 
 include_directories(
-	${libjsoncpp_headers}
-	)
+    ${libjsoncpp_headers}
+    )
 
 
 set(CMAKE_CXX_FLAGS "${GLOBAL_CXX_FLAGS} -DJSON_USE_EXCEPTION=0 -Wno-implicit-fallthrough")
