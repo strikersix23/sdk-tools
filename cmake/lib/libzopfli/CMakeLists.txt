@@ -18,18 +18,18 @@ set(LIBZOPFLI_SRC_FILES
     ${LIBZOPFLI}/src/zopfli/util.c
     ${LIBZOPFLI}/src/zopfli/zlib_container.c
     ${LIBZOPFLI}/src/zopfli/zopfli_lib.c
-	)
+    )
 
 set(ZOPFLIPNG_SRC_FILES
     ${LIBZOPFLI}/src/zopflipng/lodepng/lodepng.cpp
     ${LIBZOPFLI}/src/zopflipng/lodepng/lodepng_util.cpp
     ${LIBZOPFLI}/src/zopflipng/zopflipng_lib.cc
     ${LIBZOPFLI}/src/zopflipng/zopflipng_bin.cc
-	)
+    )
 
 include_directories(
-	${libzopfli_headers}
-	)
+    ${libzopfli_headers}
+    )
 
 
 set(CMAKE_C_FLAGS "${GLOBAL_C_FLAGS} -O2 -Werror -Wno-unused-parameter")
