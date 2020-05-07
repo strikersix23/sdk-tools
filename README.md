@@ -25,10 +25,10 @@ pacman -S repo
 cd build-tools/android-11
 
 # download source code
-repo init -u https://android.googlesource.com/platform/manifest -b master
+repo init -u https://android.googlesource.com/platform/manifest -b master --partial-clone
 
 # for china
-repo init -u https://aosp.tuna.tsinghua.edu.cn/platform/manifest -b master
+repo init -u https://android.googlesource.com/platform/manifest -b master --partial-clone
 
 repo sync -c -j4
 
