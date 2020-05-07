@@ -7,28 +7,28 @@ set(LIBPROCESSGROUP ${CMAKE_SOURCE_DIR}/${AOSP}/system/core/libprocessgroup)
 
 
 set(LIBPROCESSGROUP_SRC_FILES
-	${LIBPROCESSGROUP}/cgroup_map.cpp
+    ${LIBPROCESSGROUP}/cgroup_map.cpp
     ${LIBPROCESSGROUP}/processgroup.cpp
     ${LIBPROCESSGROUP}/sched_policy.cpp
     ${LIBPROCESSGROUP}/task_profiles.cpp
-	)
+    )
 
 set(LIBCGROUPRC_FORMAT_SRC_FILES
-	${LIBPROCESSGROUP}/cgrouprc_format/cgroup_controller.cpp
-	)
+    ${LIBPROCESSGROUP}/cgrouprc_format/cgroup_controller.cpp
+    )
 
 
 set(LIBCGROUPRC_SRC_FILES
-	${LIBPROCESSGROUP}/cgrouprc/cgroup_controller.cpp
+    ${LIBPROCESSGROUP}/cgrouprc/cgroup_controller.cpp
     ${LIBPROCESSGROUP}/cgrouprc/cgroup_file.cpp
-	)
+    )
 
 include_directories(
-	${libprocessgroup_headers}
-	${libcutils_headers}
-	${libbase_headers}
-	${libjsoncpp_headers}
-	)
+    ${libprocessgroup_headers}
+    ${libcutils_headers}
+    ${libbase_headers}
+    ${libjsoncpp_headers}
+    )
 
 set(CMAKE_CXX_FLAGS "${GLOBAL_CXX_FLAGS} -Wexit-time-destructors")
 
