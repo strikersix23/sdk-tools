@@ -7,7 +7,7 @@ set(CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake/modules)
 # load the Android.cmake
 include(Android)
 
-# check android level
+# check android api level
 check_android_api(ANDROID_API_LEVEL)
 
 if(ANDROID_API_LEVEL)
