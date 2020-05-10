@@ -131,13 +131,13 @@ set(libbuildversion_headers
 
 
 set(gtest_headers                         
-	${CMAKE_SOURCE_DIR}/${AOSP}/external/googletest/googletest/include                              
-	)
+    ${CMAKE_SOURCE_DIR}/${AOSP}/external/googletest/googletest/include                              
+    )
 	
 	
 set(cpu_features_headers                         
-	${CMAKE_SOURCE_DIR}/${AOSP}/external/cpu_features/include                              
-	)
+    ${CMAKE_SOURCE_DIR}/${AOSP}/external/cpu_features/include                              
+    )
 
 
 add_subdirectory(cmake)
