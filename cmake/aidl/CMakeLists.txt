@@ -30,7 +30,6 @@ flex_target(
 # add dependency
 add_flex_bison_dependency(LangScanner LangParser)
 
-
 set(LIBAIDL_COMMON_SRC_FILES
     ${BISON_LangParser_OUTPUTS}
     ${FLEX_LangScanner_OUTPUTS}
@@ -65,8 +64,7 @@ include_directories(
     ${liblog_headers}
     )
 
-
-set(CMAKE_CXX_FLAGS "${GLOBAL_CXX_FLAGS} -std=c++17 -O0 -Wextra")
+set(CMAKE_CXX_FLAGS "${GLOBAL_CXX_FLAGS} -O0 -Wextra")
 
 add_library(aidl-common STATIC ${LIBAIDL_COMMON_SRC_FILES})
 target_link_libraries(aidl-common)
@@ -77,7 +75,7 @@ target_link_libraries(aidl aidl-common base log c++ c++abi)
 
 
 # aidl-cpp
-#set(CMAKE_CXX_FLAGS "${GLOBAL_CXX_FLAGS} -std=c++17 -O0 -Wextra -DAIDL_CPP_BUILD")
+#set(CMAKE_CXX_FLAGS "${GLOBAL_CXX_FLAGS} -O0 -Wextra -DAIDL_CPP_BUILD")
 #add_executable(aidl-cpp ${AIDL}/main.cpp)
 #target_link_libraries(aidl-cpp)
 

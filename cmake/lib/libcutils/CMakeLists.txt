@@ -4,7 +4,6 @@ project(libcutils)
 
 set(LIBCUTILS ${CMAKE_SOURCE_DIR}/${AOSP}/system/core/libcutils)
 
-
 set(LIBCUTILS_SRC_FILES
     ${LIBCUTILS}/fs.cpp
     ${LIBCUTILS}/hashmap.cpp
@@ -22,22 +21,22 @@ set(LIBCUTILS_SRC_FILES
     ${LIBCUTILS}/native_handle.cpp
     ${LIBCUTILS}/record_stream.cpp
     ${LIBCUTILS}/sockets.cpp
-    ${LIBCUTILS}/strdup16to8.cpp
-    ${LIBCUTILS}/strdup8to16.cpp
     ${LIBCUTILS}/strlcpy.c
     ${LIBCUTILS}/threads.cpp
     ${LIBCUTILS}/android_get_control_file.cpp
     ${LIBCUTILS}/android_reboot.cpp
     ${LIBCUTILS}/ashmem-dev.cpp
     ${LIBCUTILS}/fs_config.cpp
+    ${LIBCUTILS}/ashmem-host.cpp
+    ${LIBCUTILS}/trace-host.cpp
     ${LIBCUTILS}/klog.cpp
     ${LIBCUTILS}/partition_utils.cpp
     ${LIBCUTILS}/properties.cpp
     ${LIBCUTILS}/qtaguid.cpp
     ${LIBCUTILS}/trace-dev.cpp
     ${LIBCUTILS}/uevent.cpp
+    ${LIBCUTILS}/arch-arm64/android_memset.S
     )
-
 
 include_directories(
     ${libcutils_headers}

@@ -4,7 +4,6 @@ project(aapt)
 
 set(AAPT ${CMAKE_SOURCE_DIR}/${AOSP}/frameworks/base/tools/aapt)
 
-
 # libaapt_static 
 set(LIBAAPT_STATIC_SRC_FILES
     ${AAPT}/AaptAssets.cpp
@@ -30,7 +29,6 @@ set(LIBAAPT_STATIC_SRC_FILES
     ${AAPT}/ZipFile.cpp
     )
 
- 
 # aapt
 set(AAPT_SRC_FILES ${AAPT}/Main.cpp)
 

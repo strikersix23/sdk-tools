@@ -7,9 +7,10 @@ set(LIBZIPARCHIVE ${CMAKE_SOURCE_DIR}/${AOSP}/system/core/libziparchive)
 set(LIBZIPARCHIVE_SRC_FILES
     ${LIBZIPARCHIVE}/zip_archive.cc
     ${LIBZIPARCHIVE}/zip_archive_stream_entry.cc
+    ${LIBZIPARCHIVE}/zip_cd_entry_map.cc
     ${LIBZIPARCHIVE}/zip_writer.cc
+    ${LIBZIPARCHIVE}/zip_error.cpp
     )
-
 
 include_directories(
     ${libziparchive_headers}
@@ -17,9 +18,10 @@ include_directories(
     ${liblog_headers}
     ${libutils_headers}
     ${zlib_headers}
+    ${gtest_headers}
     )
 
-set(CMAKE_CXX_FLAGS "${GLOBAL_CXX_FLAGS} -DZLIB_CONST -Werror -Wall -D_FILE_OFFSET_BITS=64 -Wno-missing-field-initializers -Wold-style-cast")
+set(CMAKE_CXX_FLAGS "${GLOBAL_CXX_FLAGS} -DZLIB_CONST -Werror -Wno-unknown-attributes -D_FILE_OFFSET_BITS=64 -Wno-missing-field-initializers -Wold-style-cast")
 
 add_library(ziparchive STATIC ${LIBZIPARCHIVE_SRC_FILES})
 target_link_libraries(ziparchive)

@@ -27,7 +27,6 @@ set(LIBUTILS_SRC_FILES
     ${LIBUTILS}/Looper.cpp
     )
 
-
 include_directories(
     ${libutils_headers}
     ${liblog_headers}

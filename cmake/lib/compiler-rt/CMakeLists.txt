@@ -4,7 +4,6 @@ project(compiler-rt)
 
 set(COMPILER-RT ${CMAKE_SOURCE_DIR}/${AOSP}/external/compiler-rt)
 
-
 set(COMPILER-RT_SRC_FILES 
     ${COMPILER-RT}/lib/builtins/enable_execute_stack.c
     ${COMPILER-RT}/lib/builtins/absvdi2.c
@@ -158,7 +157,6 @@ set(COMPILER-RT_SRC_FILES
 include_directories(${compiler-rt_headers})
 
 set(CMAKE_C_FLAGS "-Wno-unused-parameter -Wno-visibility -Wno-incompatible-pointer-types")
-
 
 add_library(compiler_rt STATIC ${COMPILER-RT_SRC_FILES})
 target_link_libraries(compiler_rt)

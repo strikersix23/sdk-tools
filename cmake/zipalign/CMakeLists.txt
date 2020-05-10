@@ -24,4 +24,4 @@ include_directories(
 set(CMAKE_CXX_FLAGS "${GLOBAL_CXX_FLAGS}")
 
 add_executable(zipalign ${ZIPALIGN_SRC_FILES})
-target_link_libraries(zipalign utils cutils ziparchive log z base zopfli c++ c++abi -lm)
+target_link_libraries(zipalign utils cutils ziparchive log z base zopfli cpu_features c++ c++abi -lm)

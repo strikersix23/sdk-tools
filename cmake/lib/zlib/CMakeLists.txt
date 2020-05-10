@@ -2,29 +2,38 @@ cmake_minimum_required(VERSION 3.4.1)
 
 project(zlib)
 
-
 set(ZLIB ${CMAKE_SOURCE_DIR}/${AOSP}/external/zlib)
 
-
 set(ZLIB_SRC_FILES
-    ${ZLIB}/src/adler32.c
-    ${ZLIB}/src/compress.c
-    ${ZLIB}/src/crc32.c
-    ${ZLIB}/src/deflate.c
-    ${ZLIB}/src/gzclose.c
-    ${ZLIB}/src/gzlib.c
-    ${ZLIB}/src/gzread.c
-    ${ZLIB}/src/gzwrite.c
-    ${ZLIB}/src/infback.c
-    ${ZLIB}/src/inflate.c
-    ${ZLIB}/src/inftrees.c
-    ${ZLIB}/src/inffast.c
-    ${ZLIB}/src/trees.c
-    ${ZLIB}/src/uncompr.c
-    ${ZLIB}/src/zutil.c
+    ${ZLIB}/adler32_simd.c
+    ${ZLIB}/cpu_features.c
+    ${ZLIB}/crc32_simd.c
+    ${ZLIB}/adler32.c
+    ${ZLIB}/compress.c
+    ${ZLIB}/crc32.c
+    ${ZLIB}/deflate.c
+    ${ZLIB}/gzclose.c
+    ${ZLIB}/gzlib.c
+    ${ZLIB}/gzread.c
+    ${ZLIB}/gzwrite.c
+    ${ZLIB}/infback.c
+    ${ZLIB}/inffast.c
+    ${ZLIB}/inflate.c
+    ${ZLIB}/inftrees.c
+    ${ZLIB}/trees.c
+    ${ZLIB}/uncompr.c
+    ${ZLIB}/zutil.c
     )
 
-set(CMAKE_C_FLAGS "${GLOBAL_C_FLAGS} -O3 -DUSE_MMAP -DZLIB_CONST -Wall -Werror")
+# android-11/prebuilts/ndk/r21/sources/android/cpufeatures/cpu-features.c
+list(APPEND ZLIB_SRC_FILES ${CMAKE_SOURCE_DIR}/${AOSP}/prebuilts/ndk/r21/sources/android/cpufeatures/cpu-features.c)
+
+include_directories(
+	${zlib_headers}
+	${cpu_features_headers}
+	)
+
+set(CMAKE_C_FLAGS "${GLOBAL_C_FLAGS} -O3 -DHAVE_HIDDEN -DZLIB_CONST -Wall -Werror -Wno-unused-variable -Wno-unused-function -DARMV8_OS_ANDROID -DARMV8_OS_LINU -DADLER32_SIMD_NEON -DINFLATE_CHUNK_SIMD_NEON -DCRC32_ARMV8_CRC32")
 
 add_library(z STATIC ${ZLIB_SRC_FILES})
 target_link_libraries(z)

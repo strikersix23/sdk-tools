@@ -4,8 +4,9 @@ project(libpng)
 
 set(LIBPNG ${CMAKE_SOURCE_DIR}/${AOSP}/external/libpng)
 
-
 set(LIBPNG_SRC_FILES
+    ${LIBPNG}/example.c
+    ${LIBPNG}/pngtest.c
     ${LIBPNG}/png.c
     ${LIBPNG}/pngerror.c
     ${LIBPNG}/pngget.c
@@ -24,6 +25,7 @@ set(LIBPNG_SRC_FILES
     ${LIBPNG}/arm/arm_init.c
     ${LIBPNG}/arm/filter_neon.S
     ${LIBPNG}/arm/filter_neon_intrinsics.c
+    ${LIBPNG}/arm/palette_neon_intrinsics.c
     )
 
 include_directories(

@@ -2,9 +2,7 @@ cmake_minimum_required(VERSION 3.4.1)
 
 project(libprocessgroup)
 
-
 set(LIBPROCESSGROUP ${CMAKE_SOURCE_DIR}/${AOSP}/system/core/libprocessgroup)
-
 
 set(LIBPROCESSGROUP_SRC_FILES
     ${LIBPROCESSGROUP}/cgroup_map.cpp
@@ -16,7 +14,6 @@ set(LIBPROCESSGROUP_SRC_FILES
 set(LIBCGROUPRC_FORMAT_SRC_FILES
     ${LIBPROCESSGROUP}/cgrouprc_format/cgroup_controller.cpp
     )
-
 
 set(LIBCGROUPRC_SRC_FILES
     ${LIBPROCESSGROUP}/cgrouprc/cgroup_controller.cpp

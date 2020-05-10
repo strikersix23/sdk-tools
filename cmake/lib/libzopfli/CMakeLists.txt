@@ -4,7 +4,6 @@ project(libzopfli)
 
 set(LIBZOPFLI ${CMAKE_SOURCE_DIR}/${AOSP}/external/zopfli)
 
-
 set(LIBZOPFLI_SRC_FILES
     ${LIBZOPFLI}/src/zopfli/blocksplitter.c
     ${LIBZOPFLI}/src/zopfli/cache.c
@@ -31,14 +30,12 @@ include_directories(
     ${libzopfli_headers}
     )
 
-
 set(CMAKE_C_FLAGS "${GLOBAL_C_FLAGS} -O2 -Werror -Wno-unused-parameter")
 
 set(CMAKE_CXX_FLAGS "${GLOBAL_CXX_FLAGS} -O2 -Werror -Wno-unused-parameter")
 
 add_library(zopfli STATIC ${LIBZOPFLI_SRC_FILES})
 target_link_libraries(zopfli)
-
 
 add_library(zopflipng STATIC ${ZOPFLIPNG_SRC_FILES})
 target_link_libraries(zopflipng)

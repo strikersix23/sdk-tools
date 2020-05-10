@@ -9,6 +9,7 @@ set(AOSP android-11)
 # headers files
 set(native_headers
     ${CMAKE_SOURCE_DIR}/${AOSP}/frameworks/native/include
+    ${CMAKE_SOURCE_DIR}/${AOSP}/frameworks/native/libs/binder/include
     )
         
 set(safe_iop_headers
@@ -93,6 +94,7 @@ set(aapt_headers
                 
 set(aapt2_headers
     ${CMAKE_SOURCE_DIR}/${AOSP}/frameworks/base/tools/aapt2
+    ${CMAKE_SOURCE_DIR}/${AOSP}/frameworks/base/tools/aapt2/frameworks/base/tools/aapt2
     )
         
 set(aidl_headers
@@ -128,15 +130,14 @@ set(libbuildversion_headers
     )
 
 
-set(GLOBAL_C_FLAGS "-Wall -fPIC -std=c11")
-# use libcxx need set -isystem
-set(GLOBAL_CXX_FLAGS "-isystem ${libcxx_headers} -isystem ${libcxxabi_headers} -Wall -nostdinc++ -fPIC -std=c++14")
+set(gtest_headers                         
+	${CMAKE_SOURCE_DIR}/${AOSP}/external/googletest/googletest/include                              
+	)
+	
+	
+set(cpu_features_headers                         
+	${CMAKE_SOURCE_DIR}/${AOSP}/external/cpu_features/include                              
+	)
 
-
-# default use libcxx and libcxxabi
-include_directories(
-    ${libcxx_headers}
-    ${libcxxabi_headers}	
-)
 
 add_subdirectory(cmake)

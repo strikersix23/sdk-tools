@@ -125,54 +125,56 @@ include_directories(
     ${libpng_headers}
     ${expat_headers}
     ${libbuildversion_headers}
+    ${gtest_headers}
     )
-
 
 message(STATUS "CMAKE_BINARY_DIR: ${CMAKE_BINARY_DIR}")
 
-# generate Resources.pb.h
-add_custom_target(Resources.pb.h
-    WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}/${AOSP}
-    COMMAND ${CMAKE_BINARY_DIR}/cmake/lib/protobuf/aprotoc frameworks/base/tools/aapt2/Resources.proto frameworks/base/tools/aapt2/Configuration.proto -cpp_out=frameworks/base/tools/aapt2
-    DEPENDS aprotoc
-    )
-
-
-# generate ResourcesInternal.pb.h
-add_custom_target(ResourcesInternal.pb.h
-    WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}/${AOSP}
-    COMMAND ${CMAKE_BINARY_DIR}/cmake/lib/protobuf/aprotoc frameworks/base/tools/aapt2/ResourcesInternal.proto frameworks/base/tools/aapt2/Configuration.proto --cpp_out=frameworks/base/tools/aapt2
-    DEPENDS aprotoc
-    )
-
+# generate files in android-11/frameworks/base/tools/aapt2/frameworks/base/tools/aapt2
+# check Configuration.pb.cc
+if (EXISTS ${AAPT2}/frameworks/base/tools/aapt2/Configuration.pb.cc)
+    list(APPEND LIBAAPT2_STATIC_SRC_FILES ${AAPT2}/frameworks/base/tools/aapt2/Configuration.pb.cc)
+else ()                                             
+    # generate Configuration.pb.h and Configuration.pb.cc
+    execute_process(
+        COMMAND ${CMAKE_BINARY_DIR}/cmake/lib/protobuf/aprotoc 
+        frameworks/base/tools/aapt2/Configuration.proto 
+        --cpp_out=frameworks/base/tools/aapt2
+        WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}/${AOSP}
+        )
+endif ()
 
 # check Resources.pb.cc
-if (EXISTS ${AAPT2}/Resources.pb.cc)
-    list(APPEND LIBAAPT2_STATIC_SRC_FILES ${AAPT2}/Resources.pb.cc)
+if (EXISTS ${AAPT2}/frameworks/base/tools/aapt2/Resources.pb.cc)
+    list(APPEND LIBAAPT2_STATIC_SRC_FILES ${AAPT2}/frameworks/base/tools/aapt2/Resources.pb.cc)
 else ()
-    message(STATUS "not found ${AAPT2}/Resources.pb.cc")
+    # generate Resources.pb.h and Resources.pb.cc
+    execute_process(
+        COMMAND ${CMAKE_BINARY_DIR}/cmake/lib/protobuf/aprotoc 
+        frameworks/base/tools/aapt2/Resources.proto 
+        --cpp_out=frameworks/base/tools/aapt2
+        WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}/${AOSP}
+        )
 endif ()
 
 # check ResourcesInternal.pb.cc
-if (EXISTS ${AAPT2}/ResourcesInternal.pb.cc)
-    list(APPEND LIBAAPT2_STATIC_SRC_FILES ${AAPT2}/ResourcesInternal.pb.cc)
+if (EXISTS ${AAPT2}/frameworks/base/tools/aapt2/ResourcesInternal.pb.cc)
+    list(APPEND LIBAAPT2_STATIC_SRC_FILES ${AAPT2}/frameworks/base/tools/aapt2/ResourcesInternal.pb.cc)
 else ()
-    message(STATUS "not found ${AAPT2}/ResourcesInternal.pb.cc")
+    # generate ResourcesInternal.pb.h and ResourcesInternal.pb.cc
+    execute_process(
+        COMMAND ${CMAKE_BINARY_DIR}/cmake/lib/protobuf/aprotoc 
+        frameworks/base/tools/aapt2/ResourcesInternal.proto 
+        --cpp_out=frameworks/base/tools/aapt2
+        WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}/${AOSP}
+)
 endif ()
-
-# check Configuration.pb.cc
-if (EXISTS ${AAPT2}/Configuration.pb.cc)
-    list(APPEND LIBAAPT2_STATIC_SRC_FILES ${AAPT2}/Configuration.pb.cc)
-else ()                                             
-    message(STATUS "not found ${AAPT2}/Configuration.pb.cc")
-endif ()
-
 
 
 set(CMAKE_C_FLAGS "${GLOBAL_C_FLAGS} -Wall -Werror -Wno-unused-parameter")
 set(CMAKE_CXX_FLAGS "${GLOBAL_CXX_FLAGS} -Wno-missing-field-initializers -fno-exceptions -fno-rtti")
 
-add_library(aapt2_static STATIC ${LIBAAPT2_STATIC_SRC_FILES})
+add_library(aapt2_static STATIC ${LIBAAPT2_STATIC_SRC_FILES} ${PROTO_SRCS})
 target_link_libraries(aapt2_static)
 
 add_library(aapt2_jni STATIC ${LIBAAPT2_JNI_SRC_FILES})

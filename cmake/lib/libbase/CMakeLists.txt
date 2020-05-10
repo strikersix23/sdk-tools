@@ -5,14 +5,17 @@ project(libbase)
 set(BASE ${CMAKE_SOURCE_DIR}/${AOSP}/system/core/base)
 
 set(LIBBASE_SRC_FILES
+    ${BASE}/abi_compatibility.cpp
     ${BASE}/chrono_utils.cpp
     ${BASE}/cmsg.cpp
     ${BASE}/file.cpp
+    ${BASE}/liblog_symbols.cpp
     ${BASE}/logging.cpp
     ${BASE}/mapped_file.cpp
+    ${BASE}/parsebool.cpp
     ${BASE}/parsenetaddress.cpp
+    ${BASE}/process.cpp
     ${BASE}/properties.cpp
-    ${BASE}/quick_exit.cpp
     ${BASE}/stringprintf.cpp
     ${BASE}/strings.cpp
     ${BASE}/threads.cpp

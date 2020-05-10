@@ -27,9 +27,7 @@ set(LIBCXXABI_SRC_FILES
     ${LIBCXXABI}/src/stdlib_typeinfo.cpp
     )
 
-
-set(CMAKE_CXX_FLAGS "${GLOBAL_CXX_FLAGS} -frtti -fexceptions -Wextra -Wno-unused-function -Wno-implicit-fallthrough -DHAVE___CXA_THREAD_ATEXIT_IMPL")
-
+set(CMAKE_CXX_FLAGS "${GLOBAL_CXX_FLAGS} -std=c++14 -frtti -fexceptions -Wextra -Wno-unused-function -Wno-implicit-fallthrough -DHAVE___CXA_THREAD_ATEXIT_IMPL")
 
 add_library(c++abi ${LIBCXXABI_SRC_FILES})
 
