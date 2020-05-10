@@ -12,7 +12,7 @@ execute_process(COMMAND uname -m
     )
 
 # only support aarch64(arm64-v8a)
-if(HOST_ARCH EQUAL "aarch64")
+if(HOST_ARCH STREQUAL "aarch64")
     message(STATUS "host arch: ${HOST_ARCH}")
 else()
     message(FATAL_ERROR "not support host arch: ${HOST_ARCH}")
