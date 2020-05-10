@@ -4,6 +4,21 @@ project(lib)
 
 set(CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake/modules)
 
+# check host arch
+execute_process(COMMAND uname -m 
+    COMMAND tr -d '\n' 
+    OUTPUT_VARIABLE 
+    HOST_ARCH
+    )
+
+# only support aarch64(arm64-v8a)
+if(HOST_ARCH EQUAL "aarch64")
+    message(STATUS "host arch: ${HOST_ARCH}")
+else()
+    message(FATAL_ERROR "not support host arch: ${HOST_ARCH}")
+endif()
+
+
 # load the Android.cmake
 include(Android)
 
