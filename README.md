@@ -2,6 +2,10 @@ aapt-cmake-build has been renamed to build-tools
 
 update android version to android-11
 
+At first, we cannot directly use the termux to build AOSP, because blueprint and soong compilation fails, but if you can successfully compile buleprint and soong, maybe you can use termux to compile AOSP, we only need to replace the prebuilts toolchain.
+
+Since it is not possible to compile android-sdk directly through the mm sdk command, choose cmake to compile each tool separately.
+
 Building android-sdk/build-tools, such as aapt aapt2 aidl zipalign ... which supports compiling with Termux. 
 
 In order to download the source code more conveniently, termux needs to install aarch64 version of Linux. [TermuxArch](https://github.com/SDRausty/TermuxArch) 
