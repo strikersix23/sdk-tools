@@ -16,7 +16,7 @@ ArchLinux only downloads source code, we are not using it to compile.
 If you need other tools, adb fastboot dexdump ...etc, just add the cmake script of the corresponding tool under build-tools/cmake
 
 you can use ndk toolchain to compile, or use termux's clang to compile, If you want to compile statically with termux, you need install ndk-multilib, pkg install ndk-multilib
-and add ldflags=-static
+and add LDFLAGS="-static -fuse-ld=lld", lld compatibility is better and faster.
 
 
 ndk toolchain download [aarch64-linux-android](https://github.com/Lzhiyong/termux-ndk/releases)
