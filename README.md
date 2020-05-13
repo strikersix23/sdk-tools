@@ -44,10 +44,10 @@ exit
 cd build-tools && mkdir build && cd build
 
 cmake -G 'Ninja' \
-	-DCMAKE_C_COMPILER=your_path/aarch64-linux-android/bin/clang \
-	-DCMAKE_CXX_COMPILER=your_path/aarch64-linux-android/bin/clang++ \
-	-DCMAKE_BUILD_TYPE=Release \
-	..
+    -DCMAKE_C_COMPILER=your_path/aarch64-linux-android/bin/clang \
+    -DCMAKE_CXX_COMPILER=your_path/aarch64-linux-android/bin/clang++ \
+    -DCMAKE_BUILD_TYPE=Release \
+    ..
 
 ninja -j16
 ```
