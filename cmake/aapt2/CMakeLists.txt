@@ -174,6 +174,9 @@ endif ()
 set(CMAKE_C_FLAGS "${GLOBAL_C_FLAGS} -Wall -Werror -Wno-unused-parameter")
 set(CMAKE_CXX_FLAGS "${GLOBAL_CXX_FLAGS} -Wno-missing-field-initializers -fno-exceptions -fno-rtti")
 
+# static linking
+set(CMAKE_EXE_LINKER_FLAGS "-static")
+
 add_library(aapt2_static STATIC ${LIBAAPT2_STATIC_SRC_FILES} ${PROTO_SRCS})
 target_link_libraries(aapt2_static)
 
@@ -181,5 +184,5 @@ add_library(aapt2_jni STATIC ${LIBAAPT2_JNI_SRC_FILES})
 target_link_libraries(aapt2_jni)
 
 add_executable(aapt2 ${AAPT2_SRC_FILES})
-target_link_libraries(aapt2 aapt2_static androidfw utils log cutils expat ziparchive png base protobuf-cpp-lite buildversion z c++ c++abi -lm)
+target_link_libraries(aapt2 aapt2_static androidfw utils log cutils expat ziparchive png base protobuf-cpp-lite buildversion z c++ c++abi -lm -ldl)
 

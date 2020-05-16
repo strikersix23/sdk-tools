@@ -65,13 +65,15 @@ include_directories(
     )
 
 set(CMAKE_CXX_FLAGS "${GLOBAL_CXX_FLAGS} -O0 -Wextra")
+# static linking
+set(CMAKE_EXE_LINKER_FLAGS "-static")
 
 add_library(aidl-common STATIC ${LIBAIDL_COMMON_SRC_FILES})
 target_link_libraries(aidl-common)
 
 # aidl
 add_executable(aidl ${AIDL}/main.cpp)
-target_link_libraries(aidl aidl-common base log c++ c++abi)
+target_link_libraries(aidl aidl-common base log c++ c++abi -ldl)
 
 
 # aidl-cpp

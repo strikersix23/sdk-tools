@@ -29,9 +29,9 @@ set(ZLIB_SRC_FILES
 list(APPEND ZLIB_SRC_FILES ${CMAKE_SOURCE_DIR}/${AOSP}/prebuilts/ndk/r21/sources/android/cpufeatures/cpu-features.c)
 
 include_directories(
-    ${zlib_headers}
-    ${cpu_features_headers}
-    )
+	${zlib_headers}
+	${cpu_features_headers}
+	)
 
 set(CMAKE_C_FLAGS "${GLOBAL_C_FLAGS} -O3 -DHAVE_HIDDEN -DZLIB_CONST -Wall -Werror -Wno-unused-variable -Wno-unused-function -DARMV8_OS_ANDROID -DARMV8_OS_LINU -DADLER32_SIMD_NEON -DINFLATE_CHUNK_SIMD_NEON -DCRC32_ARMV8_CRC32")
 

@@ -49,9 +49,11 @@ include_directories(
     )
 
 set(CMAKE_CXX_FLAGS "${GLOBAL_CXX_FLAGS} -Wno-format-y2k -DSTATIC_ANDROIDFW_FOR_TOOLS -Wno-error=implicit-fallthrough")
+# static linking
+set(CMAKE_EXE_LINKER_FLAGS "-static")
 
 add_library(aapt_static STATIC ${LIBAAPT_STATIC_SRC_FILES})
 target_link_libraries(aapt_static)
 
 add_executable(aapt ${AAPT_SRC_FILES})
-target_link_libraries(aapt aapt_static png androidfw utils processgroup cgrouprc cgrouprc_format jsoncpp log cutils expat ziparchive base buildversion z c++ c++abi -lm)
+target_link_libraries(aapt aapt_static png androidfw utils processgroup cgrouprc cgrouprc_format jsoncpp log cutils expat ziparchive base buildversion z c++ c++abi -lm -ldl)

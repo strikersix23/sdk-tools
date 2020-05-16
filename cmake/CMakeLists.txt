@@ -5,11 +5,12 @@ project(cmake)
 set(CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake/modules)
 
 # set cflags and cxxflags
-set(GLOBAL_C_FLAGS "-Wall -fPIC -Wno-unused -Wno-unused-parameter")
+set(GLOBAL_C_FLAGS "-Wall -fPIC -Wno-unused -Wno-unused-parameter -fcolor-diagnostics")
 
 # use libcxx need set -isystem
 set(GLOBAL_CXX_FLAGS "
     -nostdinc++ -fPIC \
+    -fcolor-diagnostics \
     -isystem ${libcxx_headers} \
     -isystem ${libcxxabi_headers} \
     -Wall -Wno-unknown-attributes \
