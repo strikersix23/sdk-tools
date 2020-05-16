@@ -19,7 +19,7 @@ you can use ndk toolchain to compile, or use termux's clang to compile, If you w
 and add LDFLAGS="-static -fuse-ld=lld", lld compatibility is better and faster.
 
 
-ndk toolchain download [aarch64-linux-android](https://github.com/Lzhiyong/termux-ndk/releases)
+The compiled binary files are placed in the [android-sdk](https://github.com/Lzhiyong/termux-ndk/releases)
 
  **** 
 ### How to build
