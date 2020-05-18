@@ -41,9 +41,9 @@ set(LIBARTBASE_SRC_FILES
 
 include_directories(
     ${libartbase_headers}
-	${libbase_headers}
-	${liblog_headers}
-	${libziparchive_headers}
+    ${libbase_headers}
+    ${liblog_headers}
+    ${libziparchive_headers}
     )
 
 set(CMAKE_CXX_FLAGS "${GLOBAL_CXX_FLAGS} -DBUILDING_LIBART=1")
