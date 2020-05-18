@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.4.1)
+cmake_minimum_required(VERSION 3.14.2)
 
 project(lib)
 
@@ -55,3 +55,6 @@ add_subdirectory(libcpu_features)
 add_subdirectory(androidfw)
 add_subdirectory(compiler-rt)
 add_subdirectory(protobuf)
+add_subdirectory(libartpalette)
+add_subdirectory(libartbase)
+add_subdirectory(libdexfile)

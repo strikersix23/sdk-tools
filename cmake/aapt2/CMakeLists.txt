@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.4.1)
+cmake_minimum_required(VERSION 3.14.2)
 
 project(aapt2)
 
@@ -167,7 +167,7 @@ else ()
         frameworks/base/tools/aapt2/ResourcesInternal.proto 
         --cpp_out=frameworks/base/tools/aapt2
         WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}/${AOSP}
-)
+    )
 endif ()
 
 

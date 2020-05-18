@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.4.1)
+cmake_minimum_required(VERSION 3.14.2)
 
 project(build-tools)
 
@@ -131,13 +131,42 @@ set(libbuildversion_headers
 
 
 set(gtest_headers                         
-    ${CMAKE_SOURCE_DIR}/${AOSP}/external/googletest/googletest/include                              
-    )
+	${CMAKE_SOURCE_DIR}/${AOSP}/external/googletest/googletest/include                              
+	)
 	
 	
 set(cpu_features_headers                         
-    ${CMAKE_SOURCE_DIR}/${AOSP}/external/cpu_features/include                              
-    )
+	${CMAKE_SOURCE_DIR}/${AOSP}/external/cpu_features/include                              
+	)
+	
 
+set(libartpalette_headers                        
+	${CMAKE_SOURCE_DIR}/${AOSP}/art/libartpalette/include                              
+	)
 
+set(libartbase_headers                        
+	${CMAKE_SOURCE_DIR}/${AOSP}/art/libartbase                     
+	)
+	
+set(libdexfile_headers                        
+	${CMAKE_SOURCE_DIR}/${AOSP}/art/libdexfile       
+	)
+	
+set(slang_headers                        
+	${CMAKE_SOURCE_DIR}/${AOSP}/frameworks/compile/slang       
+	)
+
+set(libbcc_headers                        
+	${CMAKE_SOURCE_DIR}/${AOSP}/frameworks/compile/libbcc       
+	)	
+	
+set(llvm_headers                        
+	${CMAKE_SOURCE_DIR}/${AOSP}/external/llvm/include       
+	)
+	
+set(clang_headers                        
+	${CMAKE_SOURCE_DIR}/${AOSP}/external/clang/include       
+	)
+	
+	
 add_subdirectory(cmake)

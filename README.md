@@ -15,7 +15,7 @@ ArchLinux only downloads source code, we are not using it to compile.
 
 If you need other tools, adb fastboot dexdump ...etc, just add the cmake script of the corresponding tool under build-tools/cmake
 
-you can use ndk toolchain to compile, or use termux's clang to compile, If you want to compile statically with termux, you need install ndk-multilib, pkg install ndk-multilib
+you can use [ndk](https://github.com/Lzhiyong/termux-ndk/releases) to compile, or use termux's clang to compile, If you want to compile statically with termux, you need install ndk-multilib, pkg install ndk-multilib
 and add LDFLAGS="-static -fuse-ld=lld", lld compatibility is better and faster.
 
 
@@ -45,9 +45,12 @@ exit
 # start building...
 cd build-tools && mkdir build && cd build
 
+TOOLCHAIN=/path/to/android-ndk-r21/toolchains/llvm/prebuilt/linux-aarch64
+
 cmake -G 'Ninja' \
-    -DCMAKE_C_COMPILER=your_path/aarch64-linux-android/bin/clang \
-    -DCMAKE_CXX_COMPILER=your_path/aarch64-linux-android/bin/clang++ \
+    -DCMAKE_C_COMPILER=$TOOLCHAIN/bin/aarch64-linux-android29-clang \
+    -DCMAKE_CXX_COMPILER=$TOOLCHAIN/bin/aarch64-linux-android29-clang++ \
+    -DCMAKE_SYSROOT=$TOOLCHAIN/sysroot \
     -DCMAKE_BUILD_TYPE=Release \
     ..
 

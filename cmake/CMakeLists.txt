@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.4.1)
+cmake_minimum_required(VERSION 3.14.2)
 
 project(cmake)
 
@@ -8,7 +8,7 @@ set(CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake/modules)
 set(GLOBAL_C_FLAGS "-Wall -fPIC -Wno-unused -Wno-unused-parameter -fcolor-diagnostics")
 
 # use libcxx need set -isystem
-set(GLOBAL_CXX_FLAGS "
+set(GLOBAL_CXX_FLAGS " \
     -nostdinc++ -fPIC \
     -fcolor-diagnostics \
     -isystem ${libcxx_headers} \
@@ -52,3 +52,6 @@ add_subdirectory(aapt)
 add_subdirectory(aapt2)
 add_subdirectory(aidl)
 add_subdirectory(zipalign)
+add_subdirectory(dexdump)
+add_subdirectory(split-select)
+
