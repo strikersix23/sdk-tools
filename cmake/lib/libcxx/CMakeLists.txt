@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.14.2)
 
 project(libcxx)
 
-set(LIBCXX ${CMAKE_SOURCE_DIR}/${AOSP}/external/libcxx)
+set(LIBCXX ${AOSP}/external/libcxx)
 
 # libcxx src files
 set(LIBCXX_SRC_FILES

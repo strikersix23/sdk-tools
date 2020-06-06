@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.14.2)
 
 project(libutils)
 
-set(LIBUTILS ${CMAKE_SOURCE_DIR}/${AOSP}/system/core/libutils)
+set(LIBUTILS ${AOSP}/system/core/libutils)
 
 set(LIBUTILS_SRC_FILES
     ${LIBUTILS}/FileMap.cpp

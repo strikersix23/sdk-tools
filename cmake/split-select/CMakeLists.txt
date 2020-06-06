@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.14.2)
 
 project(split-select)
 
-set(SPLIT-SELECT ${CMAKE_SOURCE_DIR}/${AOSP}/frameworks/base/tools/split-select)
+set(SPLIT-SELECT ${AOSP}/frameworks/base/tools/split-select)
 
 set(LIBSPLIT-SELECT_SRC_FILES
     ${SPLIT-SELECT}/Abi.cpp

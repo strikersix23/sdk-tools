@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.14.2)
 
 project(zipalign)
 
-set(ZIPALIGN ${CMAKE_SOURCE_DIR}/${AOSP}/build/tools/zipalign)
+set(ZIPALIGN ${AOSP}/build/tools/zipalign)
 
 set(ZIPALIGN_SRC_FILES
     ${ZIPALIGN}/ZipAlign.cpp

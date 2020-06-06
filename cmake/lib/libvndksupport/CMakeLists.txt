@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.14.2)
 
 project(libvndksupport)
 
-set(LIBVNDKSUPPORT ${CMAKE_SOURCE_DIR}/${AOSP}/system/core/libvndksupport)
+set(LIBVNDKSUPPORT ${AOSP}/system/core/libvndksupport)
 
 set(LIBVNDKSUPPORT_SRC_FILES
     ${LIBVNDKSUPPORT}/linker.cpp

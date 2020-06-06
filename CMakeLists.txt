@@ -3,170 +3,252 @@ cmake_minimum_required(VERSION 3.14.2)
 project(build-tools)
 
 # android source code 
-set(AOSP android-11)
+set(AOSP ${CMAKE_SOURCE_DIR}/android-11)
 
 
 # headers files
 set(native_headers
-    ${CMAKE_SOURCE_DIR}/${AOSP}/frameworks/native/include
-    ${CMAKE_SOURCE_DIR}/${AOSP}/frameworks/native/libs/binder/include
+    ${AOSP}/frameworks/native/include
+    ${AOSP}/frameworks/native/libs/binder/include
     )
         
 set(safe_iop_headers
-    ${CMAKE_SOURCE_DIR}/${AOSP}/external/safe-iop/include
+    ${AOSP}/external/safe-iop/include
     )
         
 set(libbacktrace_headers
-    ${CMAKE_SOURCE_DIR}/${AOSP}/system/core/libbacktrace
-    ${CMAKE_SOURCE_DIR}/${AOSP}/system/core/libbacktrace/include
+    ${AOSP}/system/core/libbacktrace
+    ${AOSP}/system/core/libbacktrace/include
     )
                 
 set(libsystem_headers
-    ${CMAKE_SOURCE_DIR}/${AOSP}/system/core/libsystem/include
+    ${AOSP}/system/core/libsystem/include
     )
 
 set(androidfw_headers
-    ${CMAKE_SOURCE_DIR}/${AOSP}/frameworks/base/libs/androidfw/include
+    ${AOSP}/frameworks/base/libs/androidfw/include
     )
         
 set(expat_headers
-    ${CMAKE_SOURCE_DIR}/${AOSP}/external/expat
-    ${CMAKE_SOURCE_DIR}/${AOSP}/external/expat/lib
+    ${AOSP}/external/expat
+    ${AOSP}/external/expat/lib
     )
          
 set(libpng_headers
-    ${CMAKE_SOURCE_DIR}/${AOSP}/external/libpng
+    ${AOSP}/external/libpng
     )
                 
 set(protobuf_headers
-    ${CMAKE_SOURCE_DIR}/${AOSP}/external/protobuf/android
-    ${CMAKE_SOURCE_DIR}/${AOSP}/external/protobuf/src
+    ${AOSP}/external/protobuf/android
+    ${AOSP}/external/protobuf/src
     )
                 
 set(zlib_headers
-    ${CMAKE_SOURCE_DIR}/${AOSP}/external/zlib
-    ${CMAKE_SOURCE_DIR}/${AOSP}/external/zlib/src
+    ${AOSP}/external/zlib
+    ${AOSP}/external/zlib/src
     )
 
 set(libcxx_headers
-    ${CMAKE_SOURCE_DIR}/${AOSP}/external/libcxx/include
+    ${AOSP}/external/libcxx/include
     )
 
 set(libcxxabi_headers
-    ${CMAKE_SOURCE_DIR}/${AOSP}/external/libcxxabi/include
+    ${AOSP}/external/libcxxabi/include
     )
 
 set(compiler-rt_headers
-    ${CMAKE_SOURCE_DIR}/${AOSP}/external/compiler-rt/include
+    ${AOSP}/external/compiler-rt/include
     )
 
 set(libbase_headers
-    ${CMAKE_SOURCE_DIR}/${AOSP}/system/core/base/include
+    ${AOSP}/system/core/base/include
     )
         
 set(libcutils_headers
-    ${CMAKE_SOURCE_DIR}/${AOSP}/system/core/libcutils
-    ${CMAKE_SOURCE_DIR}/${AOSP}/system/core/libcutils/include
+    ${AOSP}/system/core/libcutils
+    ${AOSP}/system/core/libcutils/include
     )
         
 set(liblog_headers
-    ${CMAKE_SOURCE_DIR}/${AOSP}/system/core/liblog
-    ${CMAKE_SOURCE_DIR}/${AOSP}/system/core/liblog/include
+    ${AOSP}/system/core/liblog
+    ${AOSP}/system/core/liblog/include
     )
         
 set(libutils_headers
-    ${CMAKE_SOURCE_DIR}/${AOSP}/system/core/libutils
-    ${CMAKE_SOURCE_DIR}/${AOSP}/system/core/libutils/include
+    ${AOSP}/system/core/libutils
+    ${AOSP}/system/core/libutils/include
     )
         
 set(libziparchive_headers
-    ${CMAKE_SOURCE_DIR}/${AOSP}/system/core/libziparchive
-    ${CMAKE_SOURCE_DIR}/${AOSP}/system/core/libziparchive/include
+    ${AOSP}/system/core/libziparchive
+    ${AOSP}/system/core/libziparchive/include
     )
         
 set(libnativehelper_headers
-    ${CMAKE_SOURCE_DIR}/${AOSP}/libnativehelper/include_jni
+    ${AOSP}/libnativehelper/include_jni
     )
         
 set(aapt_headers
-    ${CMAKE_SOURCE_DIR}/${AOSP}/frameworks/base/tools/aapt
+    ${AOSP}/frameworks/base/tools/aapt
     )
                 
 set(aapt2_headers
-    ${CMAKE_SOURCE_DIR}/${AOSP}/frameworks/base/tools/aapt2
-    ${CMAKE_SOURCE_DIR}/${AOSP}/frameworks/base/tools/aapt2/frameworks/base/tools/aapt2
+    ${AOSP}/frameworks/base/tools/aapt2
+    ${AOSP}/frameworks/base/tools/aapt2/frameworks/base/tools/aapt2
     )
         
 set(aidl_headers
-    ${CMAKE_SOURCE_DIR}/${AOSP}/system/tools/aidl
+    ${AOSP}/system/tools/aidl
     )
 
 set(libzopfli_headers
-    ${CMAKE_SOURCE_DIR}/${AOSP}/external/zopfli/src
+    ${AOSP}/external/zopfli/src
     )
 
 set(zipalign_headers
-    ${CMAKE_SOURCE_DIR}/${AOSP}/build/tools/zipalign
+    ${AOSP}/build/tools/zipalign
     )
 
 set(libprocessgroup_headers
-    ${CMAKE_SOURCE_DIR}/${AOSP}/system/core/libprocessgroup
-    ${CMAKE_SOURCE_DIR}/${AOSP}/system/core/libprocessgroup/include
-    ${CMAKE_SOURCE_DIR}/${AOSP}/system/core/libprocessgroup/cgrouprc/include
-    ${CMAKE_SOURCE_DIR}/${AOSP}/system/core/libprocessgroup/cgrouprc_format/include
+    ${AOSP}/system/core/libprocessgroup
+    ${AOSP}/system/core/libprocessgroup/include
+    ${AOSP}/system/core/libprocessgroup/cgrouprc/include
+    ${AOSP}/system/core/libprocessgroup/cgrouprc_format/include
     )
 
 set(libvndksupport_headers
-    ${CMAKE_SOURCE_DIR}/${AOSP}/system/core/libvndksupport/include
-    ${CMAKE_SOURCE_DIR}/${AOSP}/system/core/libvndksupport/include/vndksupport
+    ${AOSP}/system/core/libvndksupport/include
+    ${AOSP}/system/core/libvndksupport/include/vndksupport
     )
 
 set(libjsoncpp_headers
-    ${CMAKE_SOURCE_DIR}/${AOSP}/external/jsoncpp/include
+    ${AOSP}/external/jsoncpp/include
     )
 	
 set(libbuildversion_headers
-    ${CMAKE_SOURCE_DIR}/${AOSP}/build/soong/cc/libbuildversion/include
+    ${AOSP}/build/soong/cc/libbuildversion/include
     )
 
 
 set(gtest_headers                         
-    ${CMAKE_SOURCE_DIR}/${AOSP}/external/googletest/googletest/include                              
+    ${AOSP}/external/googletest/googletest/include                              
     )
 	
 	
 set(cpu_features_headers                         
-    ${CMAKE_SOURCE_DIR}/${AOSP}/external/cpu_features/include                              
+    ${AOSP}/external/cpu_features/include                              
     )
 	
 
 set(libartpalette_headers                        
-    ${CMAKE_SOURCE_DIR}/${AOSP}/art/libartpalette/include                              
+    ${AOSP}/art/libartpalette/include                              
     )
 
 set(libartbase_headers                        
-    ${CMAKE_SOURCE_DIR}/${AOSP}/art/libartbase                     
+    ${AOSP}/art/libartbase                     
     )
 	
 set(libdexfile_headers                        
-    ${CMAKE_SOURCE_DIR}/${AOSP}/art/libdexfile       
+    ${AOSP}/art/libdexfile       
     )
 	
 set(slang_headers                        
-    ${CMAKE_SOURCE_DIR}/${AOSP}/frameworks/compile/slang       
+    ${AOSP}/frameworks/compile/slang       
     )
 
 set(libbcc_headers                        
-    ${CMAKE_SOURCE_DIR}/${AOSP}/frameworks/compile/libbcc       
+    ${AOSP}/frameworks/compile/libbcc       
     )	
 	
 set(llvm_headers                        
-    ${CMAKE_SOURCE_DIR}/${AOSP}/external/llvm/include       
+    ${AOSP}/external/llvm/include       
     )
 	
 set(clang_headers                        
-    ${CMAKE_SOURCE_DIR}/${AOSP}/external/clang/include       
+    ${AOSP}/external/clang/include       
+    )
+    
+set(etc1tool_headers                        
+    ${AOSP}/frameworks/native/opengl/include       
+    )
+    
+set(sqlite_headers                        
+    ${AOSP}/external/sqlite/android
+    ${AOSP}/external/sqlite/dist
+    )
+    
+set(icu_headers                        
+    ${AOSP}/external/icu/libandroidicu/include
+    ${AOSP}/external/icu/libandroidicuinit/include
     )
 	
-	
+set(libsparse_headers                        
+    ${AOSP}/system/core/libsparse/include
+    )
+    
+set(libsepol_headers                        
+    ${AOSP}/external/selinux/libsepol/include
+    ${AOSP}/external/selinux/libsepol/cil/include
+    )
+    
+set(libselinux_headers                        
+    ${AOSP}/external/selinux/libselinux/include
+    )
+    
+set(libpcre2_headers                        
+    ${AOSP}/external/pcre/include
+    )
+    
+set(libpackagelistparser_headers                        
+    ${AOSP}/system/core/libpackagelistparser/include
+    )
+    
+set(e2fsprogs_headers                        
+    ${AOSP}/external/e2fsprogs/lib
+    )
+    
+set(f2fs_headers                        
+    ${AOSP}/external/f2fs-tools/include
+    )
+    
+set(boringssl_headers                        
+    ${AOSP}/external/boringssl/src/include
+    )
+    
+set(libcrypto_utils_headers                        
+    ${AOSP}/system/core/libcrypto_utils/include
+    )
+    
+set(adb_headers
+    ${AOSP}/system/core/adb/crypto/include
+    ${AOSP}/system/core/adb/tls/include
+    ${AOSP}/system/core/adb/pairing_auth/include
+    ${AOSP}/system/core/adb/pairing_connection/include
+    ${AOSP}/system/core/adb/proto/system/core/adb/proto
+    )
+
+set(libdiagnose_usb_headers                        
+    ${AOSP}/system/core/diagnose_usb/include
+    )
+    
+set(libcrypto_utils_headers                        
+    ${AOSP}/system/core/libcrypto_utils/include
+    )
+    
+set(libusb_headers                        
+    ${AOSP}/external/libusb/include
+    )
+    
+set(libbrotli_headers                        
+    ${AOSP}/external/brotli/c/include
+    )
+    
+set(mdnsresponder_headers                        
+    ${AOSP}/external/mdnsresponder/mDNSShared
+    )
+
+set(liblz4_headers                        
+    ${AOSP}/external/lz4/lib
+    )
+    
 add_subdirectory(cmake)

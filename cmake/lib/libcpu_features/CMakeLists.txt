@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.14.2)
 
 project(libcpu_features)
 
-set(CPU_FEATURES ${CMAKE_SOURCE_DIR}/${AOSP}/external/cpu_features)
+set(CPU_FEATURES ${AOSP}/external/cpu_features)
 
 set(LIBCPU_FEATURES_SRC_FILES
         ${CPU_FEATURES}/src/filesystem.c

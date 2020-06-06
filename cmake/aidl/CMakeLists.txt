@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.14.2)
 
 project(aidl)
 
-set(AIDL ${CMAKE_SOURCE_DIR}/${AOSP}/system/tools/aidl)
+set(AIDL ${AOSP}/system/tools/aidl)
 
 find_package(BISON REQUIRED)
 find_package(FLEX REQUIRED)
@@ -17,14 +17,14 @@ endif()
 
 # generate aidl_language_y.h and aidl_language_y.cpp
 bison_target(
-    LangParser ${CMAKE_SOURCE_DIR}/${AOSP}/system/tools/aidl/aidl_language_y.yy ${CMAKE_SOURCE_DIR}/${AOSP}/system/tools/aidl/aidl_language_y.cpp
-    DEFINES_FILE ${CMAKE_SOURCE_DIR}/${AOSP}/system/tools/aidl/aidl_language_y.h
+    LangParser ${AOSP}/system/tools/aidl/aidl_language_y.yy ${AOSP}/system/tools/aidl/aidl_language_y.cpp
+    DEFINES_FILE ${AOSP}/system/tools/aidl/aidl_language_y.h
 )
 
 # generate aidl_language_l.h and aidl_language_l.cpp
 flex_target(
-    LangScanner ${CMAKE_SOURCE_DIR}/${AOSP}/system/tools/aidl/aidl_language_l.ll ${CMAKE_SOURCE_DIR}/${AOSP}/system/tools/aidl/aidl_language_l.cpp
-    DEFINES_FILE ${CMAKE_SOURCE_DIR}/${AOSP}/system/tools/aidl/aidl_language_l.h
+    LangScanner ${AOSP}/system/tools/aidl/aidl_language_l.ll ${AOSP}/system/tools/aidl/aidl_language_l.cpp
+    DEFINES_FILE ${AOSP}/system/tools/aidl/aidl_language_l.h
 )
 
 # add dependency

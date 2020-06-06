@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.14.2)
 
 project(libziparchive)
 
-set(LIBZIPARCHIVE ${CMAKE_SOURCE_DIR}/${AOSP}/system/core/libziparchive)
+set(LIBZIPARCHIVE ${AOSP}/system/core/libziparchive)
 
 set(LIBZIPARCHIVE_SRC_FILES
     ${LIBZIPARCHIVE}/zip_archive.cc

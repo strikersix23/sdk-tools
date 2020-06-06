@@ -54,4 +54,4 @@ add_subdirectory(aidl)
 add_subdirectory(zipalign)
 add_subdirectory(dexdump)
 add_subdirectory(split-select)
-
+add_subdirectory(platform-tools)

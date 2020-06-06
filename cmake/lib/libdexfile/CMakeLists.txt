@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.14.2)
 
 project(libdexfile)
 
-set(LIBDEXFILE ${CMAKE_SOURCE_DIR}/${AOSP}/art/libdexfile)
+set(LIBDEXFILE ${AOSP}/art/libdexfile)
 
 set(LIBDEXFILE_SRC_FILES
     ${LIBDEXFILE}/dex/art_dex_file_loader.cc

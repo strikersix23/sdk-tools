@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.14.2)
 
 project(libzopfli)
 
-set(LIBZOPFLI ${CMAKE_SOURCE_DIR}/${AOSP}/external/zopfli)
+set(LIBZOPFLI ${AOSP}/external/zopfli)
 
 set(LIBZOPFLI_SRC_FILES
     ${LIBZOPFLI}/src/zopfli/blocksplitter.c

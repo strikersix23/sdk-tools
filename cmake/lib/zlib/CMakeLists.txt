@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.14.2)
 
 project(zlib)
 
-set(ZLIB ${CMAKE_SOURCE_DIR}/${AOSP}/external/zlib)
+set(ZLIB ${AOSP}/external/zlib)
 
 set(ZLIB_SRC_FILES
     ${ZLIB}/adler32_simd.c
@@ -26,7 +26,7 @@ set(ZLIB_SRC_FILES
     )
 
 # android-11/prebuilts/ndk/r21/sources/android/cpufeatures/cpu-features.c
-list(APPEND ZLIB_SRC_FILES ${CMAKE_SOURCE_DIR}/${AOSP}/prebuilts/ndk/r21/sources/android/cpufeatures/cpu-features.c)
+list(APPEND ZLIB_SRC_FILES ${AOSP}/prebuilts/ndk/r21/sources/android/cpufeatures/cpu-features.c)
 
 include_directories(
 	${zlib_headers}

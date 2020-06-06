@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.14.2)
 
 project(expat)
 
-set(EXPAT ${CMAKE_SOURCE_DIR}/${AOSP}/external/expat)
+set(EXPAT ${AOSP}/external/expat)
 
 # libexpat
 set(EXPAT_SRC_FILES

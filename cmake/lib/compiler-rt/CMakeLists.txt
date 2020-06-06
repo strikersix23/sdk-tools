@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.14.2)
 
 project(compiler-rt)
 
-set(COMPILER-RT ${CMAKE_SOURCE_DIR}/${AOSP}/external/compiler-rt)
+set(COMPILER-RT ${AOSP}/external/compiler-rt)
 
 set(COMPILER-RT_SRC_FILES 
     ${COMPILER-RT}/lib/builtins/enable_execute_stack.c

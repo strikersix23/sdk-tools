@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.14.2)
 
 project(aapt2)
 
-set(AAPT2 ${CMAKE_SOURCE_DIR}/${AOSP}/frameworks/base/tools/aapt2)
+set(AAPT2 ${AOSP}/frameworks/base/tools/aapt2)
 
 set(TOOL_SRC_FILES
     ${AAPT2}/cmd/Command.cpp
@@ -140,7 +140,7 @@ else ()
         COMMAND ${CMAKE_BINARY_DIR}/cmake/lib/protobuf/aprotoc 
         frameworks/base/tools/aapt2/Configuration.proto 
         --cpp_out=frameworks/base/tools/aapt2
-        WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}/${AOSP}
+        WORKING_DIRECTORY ${AOSP}
         )
 endif ()
 
@@ -153,7 +153,7 @@ else ()
         COMMAND ${CMAKE_BINARY_DIR}/cmake/lib/protobuf/aprotoc 
         frameworks/base/tools/aapt2/Resources.proto 
         --cpp_out=frameworks/base/tools/aapt2
-        WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}/${AOSP}
+        WORKING_DIRECTORY ${AOSP}
         )
 endif ()
 
@@ -166,7 +166,7 @@ else ()
         COMMAND ${CMAKE_BINARY_DIR}/cmake/lib/protobuf/aprotoc 
         frameworks/base/tools/aapt2/ResourcesInternal.proto 
         --cpp_out=frameworks/base/tools/aapt2
-        WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}/${AOSP}
+        WORKING_DIRECTORY ${AOSP}
     )
 endif ()
 

@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.14.2)
 
 project(protobuf)
 
-set(PROTOBUF ${CMAKE_SOURCE_DIR}/${AOSP}/external/protobuf)
+set(PROTOBUF ${AOSP}/external/protobuf)
 
 set(LIBPROTOBUF_CPP_LITE_SRC_FILES
     ${PROTOBUF}/src/google/protobuf/any_lite.cc

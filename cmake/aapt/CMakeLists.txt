@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.14.2)
 
 project(aapt)
 
-set(AAPT ${CMAKE_SOURCE_DIR}/${AOSP}/frameworks/base/tools/aapt)
+set(AAPT ${AOSP}/frameworks/base/tools/aapt)
 
 # libaapt_static 
 set(LIBAAPT_STATIC_SRC_FILES

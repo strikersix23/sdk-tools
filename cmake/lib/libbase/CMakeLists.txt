@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.14.2)
 
 project(libbase)
 
-set(BASE ${CMAKE_SOURCE_DIR}/${AOSP}/system/core/base)
+set(BASE ${AOSP}/system/core/base)
 
 set(LIBBASE_SRC_FILES
     ${BASE}/abi_compatibility.cpp

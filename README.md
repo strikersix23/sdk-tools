@@ -6,20 +6,20 @@ At first, we cannot directly use the termux to build AOSP, because blueprint and
 
 Since it is not possible to compile android-sdk directly through the mm sdk command, so choose cmake to compile each tool separately.
 
-Building android-sdk/build-tools, such as aapt aapt2 aidl zipalign ... which supports compiling with Termux. 
+Building android-sdk/build-tools, such as aapt aapt2 aidl zipalign adb fastboot ... which supports compiling with Termux. 
 
 In order to download the source code more conveniently, termux needs to install aarch64 version of Linux. [TermuxArch](https://github.com/SDRausty/TermuxArch) 
 is recommended, Of course you can also install other Linux distributions, ubuntu debian kali ... etc.
 
 ArchLinux only downloads source code, we are not using it to compile.
 
-If you need other tools, adb fastboot dexdump ...etc, just add the cmake script of the corresponding tool under build-tools/cmake
+If you need other tools, please add the cmake script of the corresponding tool under build-tools/cmake
 
 you can use [ndk](https://github.com/Lzhiyong/termux-ndk/releases) to compile, or use termux's clang to compile, If you want to compile statically with termux, you need install ndk-multilib, pkg install ndk-multilib
 and add LDFLAGS="-static -fuse-ld=lld", lld compatibility is better and faster.
 
 
-The compiled binary files are placed in the [android-sdk](https://github.com/Lzhiyong/termux-ndk/releases)/build-tools
+The compiled binary files are placed in the [android-sdk](https://github.com/Lzhiyong/termux-ndk/releases)/build-tools platform-tools
 
  **** 
 ### How to build

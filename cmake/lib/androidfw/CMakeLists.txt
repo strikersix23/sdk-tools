@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 3.14.2)
 project(androidfw)
 
 
-set(ANDROIDFW ${CMAKE_SOURCE_DIR}/${AOSP}/frameworks/base/libs/androidfw)
+set(ANDROIDFW ${AOSP}/frameworks/base/libs/androidfw)
 
 
 set(ANDROIDFW_SRC_FILES

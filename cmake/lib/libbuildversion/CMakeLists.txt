@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.14.2)
 
 project(libbuildversion)
 
-set(LIBUILDVERSION ${CMAKE_SOURCE_DIR}/${AOSP}/build/soong/cc/libbuildversion)
+set(LIBUILDVERSION ${AOSP}/build/soong/cc/libbuildversion)
 
 
 set(LIBUILDVERSION_SRC_FILES

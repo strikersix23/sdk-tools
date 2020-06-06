@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.14.2)
 
 project(libpng)
 
-set(LIBPNG ${CMAKE_SOURCE_DIR}/${AOSP}/external/libpng)
+set(LIBPNG ${AOSP}/external/libpng)
 
 set(LIBPNG_SRC_FILES
     ${LIBPNG}/example.c

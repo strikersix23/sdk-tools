@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.14.2)
 
 project(libartpalette)
 
-set(LIBARTPALETTE ${CMAKE_SOURCE_DIR}/${AOSP}/art/libartpalette)
+set(LIBARTPALETTE ${AOSP}/art/libartpalette)
 
 set(LIBARTPALETTE_SRC_FILES
     ${LIBARTPALETTE}/apex/palette.cc

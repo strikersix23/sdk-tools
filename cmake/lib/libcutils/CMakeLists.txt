@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.14.2)
 
 project(libcutils)
 
-set(LIBCUTILS ${CMAKE_SOURCE_DIR}/${AOSP}/system/core/libcutils)
+set(LIBCUTILS ${AOSP}/system/core/libcutils)
 
 set(LIBCUTILS_SRC_FILES
     ${LIBCUTILS}/fs.cpp

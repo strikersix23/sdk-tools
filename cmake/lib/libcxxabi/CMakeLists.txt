@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.14.2)
 
 project(libcxxabi)
 
-set(LIBCXXABI ${CMAKE_SOURCE_DIR}/${AOSP}/external/libcxxabi)
+set(LIBCXXABI ${AOSP}/external/libcxxabi)
 
 # libcxxabi src files
 set(LIBCXXABI_SRC_FILES

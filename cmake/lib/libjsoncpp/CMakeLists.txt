@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.14.2)
 
 project(libjsoncpp)
 
-set(LIBJSONCPP ${CMAKE_SOURCE_DIR}/${AOSP}/external/jsoncpp)
+set(LIBJSONCPP ${AOSP}/external/jsoncpp)
 
 set(LIBJSONCPP_SRC_FILES
     ${LIBJSONCPP}/src/lib_json/json_reader.cpp

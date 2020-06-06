@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.14.2)
 
 project(dexdump)
 
-set(DEXDUMP ${CMAKE_SOURCE_DIR}/${AOSP}/art/dexdump)
+set(DEXDUMP ${AOSP}/art/dexdump)
 
 set(DEXDUMP_SRC_FILES
     ${DEXDUMP}/dexdump_cfg.cc
