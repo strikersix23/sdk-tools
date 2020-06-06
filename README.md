@@ -15,11 +15,11 @@ ArchLinux only downloads source code, we are not using it to compile.
 
 If you need other tools, please add the cmake script of the corresponding tool under build-tools/cmake
 
-you can use [ndk](https://github.com/Lzhiyong/termux-ndk/releases) to compile, or use termux's clang to compile, If you want to compile statically with termux, you need install ndk-multilib, pkg install ndk-multilib
+you can use prebuilt [ndk](https://github.com/Lzhiyong/termux-ndk/releases) to compile, ndk from [termux-ndk](https://github.com/Lzhiyong/termux-ndk) or use termux's clang to compile, If you want to compile statically with termux, you need install ndk-multilib, pkg install ndk-multilib
 and add LDFLAGS="-static -fuse-ld=lld", lld compatibility is better and faster.
 
 
-The compiled binary files are placed in the [android-sdk](https://github.com/Lzhiyong/termux-ndk/releases)/build-tools platform-tools
+The compiled binary files are placed in the [android-sdk](https://github.com/Lzhiyong/termux-ndk/releases)/build-tools and platform-tools
 
  **** 
 ### How to build
