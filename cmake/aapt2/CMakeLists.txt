@@ -96,7 +96,6 @@ set(LIBAAPT2_STATIC_SRC_FILES
     )
 
 
-
 # libaapt2_jni shared lib
 set(LIBAAPT2_JNI_SRC_FILES
     ${AAPT2}/jni/aapt2_jni.cpp
@@ -188,7 +187,6 @@ target_link_libraries(aapt2
     aapt2_static 
     androidfw 
     utils 
-    log 
     cutils 
     expat 
     ziparchive 
@@ -196,6 +194,7 @@ target_link_libraries(aapt2
     base 
     protobuf-cpp-lite 
     buildversion 
+    log
     z 
     c++ 
     c++abi 
