@@ -26,4 +26,20 @@ set(CMAKE_C_FLAGS "${GLOBAL_C_FLAGS}")
 set(CMAKE_EXE_LINKER_FLAGS "-static")
 
 add_executable(e2fsdroid ${E2FSDROID_SRC_FILES})
-target_link_libraries(e2fsdroid ext2_misc ext2fs ext2_com_err cutils base selinux sepol sparse pcre2 packagelistparser base log z c++ c++abi -ldl)
+target_link_libraries(e2fsdroid 
+    ext2_misc 
+    ext2fs 
+    ext2_com_err 
+    selinux 
+    sepol 
+    sparse 
+    pcre2 
+    packagelistparser 
+    cutils
+    base
+    log 
+    z 
+    c++ 
+    c++abi 
+    -ldl
+    )

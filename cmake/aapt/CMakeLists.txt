@@ -56,4 +56,24 @@ add_library(aapt_static STATIC ${LIBAAPT_STATIC_SRC_FILES})
 target_link_libraries(aapt_static)
 
 add_executable(aapt ${AAPT_SRC_FILES})
-target_link_libraries(aapt aapt_static png androidfw utils processgroup cgrouprc cgrouprc_format jsoncpp log cutils expat ziparchive base buildversion z c++ c++abi -lm -ldl)
+target_link_libraries(aapt 
+    aapt_static 
+    png 
+    androidfw 
+    utils 
+    processgroup 
+    cgrouprc 
+    cgrouprc_format 
+    jsoncpp 
+    log 
+    cutils 
+    expat 
+    ziparchive 
+    base 
+    buildversion 
+    z 
+    c++ 
+    c++abi 
+    -lm 
+    -ldl
+    )

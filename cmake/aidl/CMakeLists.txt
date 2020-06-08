@@ -73,7 +73,14 @@ target_link_libraries(aidl-common)
 
 # aidl
 add_executable(aidl ${AIDL}/main.cpp)
-target_link_libraries(aidl aidl-common base log c++ c++abi -ldl)
+target_link_libraries(aidl 
+    aidl-common 
+    base 
+    log 
+    c++ 
+    c++abi 
+    -ldl
+    )
 
 
 # aidl-cpp

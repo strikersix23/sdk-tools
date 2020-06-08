@@ -32,5 +32,25 @@ add_library(split-select_static STATIC ${LIBSPLIT-SELECT_SRC_FILES})
 target_link_libraries(split-select_static)
 
 add_executable(split-select ${SPLIT-SELECT}/Main.cpp)
-target_link_libraries(split-select split-select_static aapt_static androidfw utils processgroup cgrouprc cgrouprc_format jsoncpp log cutils expat ziparchive png base z c++ c++abi -lm -ldl)
+target_link_libraries(split-select 
+    split-select_static 
+    aapt_static 
+    androidfw 
+    utils 
+    processgroup 
+    cgrouprc 
+    cgrouprc_format 
+    jsoncpp 
+    log 
+    cutils 
+    expat 
+    ziparchive 
+    png 
+    base 
+    z 
+    c++ 
+    c++abi 
+    -lm 
+    -ldl
+    )
 

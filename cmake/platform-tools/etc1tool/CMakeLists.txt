@@ -23,4 +23,12 @@ add_library(ETC1 STATIC ${LIBETC1_SRC_FILES})
 target_link_libraries(ETC1)
 
 add_executable(etc1tool ${ETC1TOOL_SRC_FILES})
-target_link_libraries(etc1tool expat png ETC1 z c++ c++abi -ldl)
+target_link_libraries(etc1tool 
+    expat 
+    png 
+    ETC1 
+    z 
+    c++ 
+    c++abi 
+    -ldl
+    )

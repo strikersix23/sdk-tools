@@ -131,7 +131,8 @@ set(libbuildversion_headers
 
 
 set(gtest_headers                         
-    ${AOSP}/external/googletest/googletest/include                              
+    ${AOSP}/external/googletest/googletest/include           
+    ${AOSP}/external/googletest/googlemock/include                   
     )
 	
 	
@@ -249,6 +250,14 @@ set(mdnsresponder_headers
 
 set(liblz4_headers                        
     ${AOSP}/external/lz4/lib
+    )
+    
+set(libext4_utils_headers                        
+    ${AOSP}/system/extras/ext4_utils/include
+    )
+
+set(liblp_headers                        
+    ${AOSP}/system/core/fs_mgr/liblp/include
     )
     
 add_subdirectory(cmake)

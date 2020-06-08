@@ -60,12 +60,13 @@ set(CMAKE_C_FLAGS " \
     -fPIC \
     ")
 
-
 include_directories(
     ${sqlite_headers}
     ${icu_headers}
     ${liblog_headers}
     )
+
+set(CMAKE_EXE_LINKER_FLAGS "-static")
 
 add_library(sqlite3_android STATIC ${LIBSQLITE3_ANDROID_SRC_FILES})
 target_link_libraries(sqlite3_android)
@@ -74,5 +75,19 @@ add_library(sqlite STATIC ${SQLITE}/dist/sqlite3.c)
 target_link_libraries(sqlite)
 
 add_executable(sqlite3 ${SQLITE}/dist/shell.c)
-target_link_libraries(sqlite3 sqlite sqlite3_android androidicu androidicuinit icui18n icuuc icuuc_stubdata base log utils c++ c++abi -ldl)
+target_link_libraries(sqlite3 
+    sqlite 
+    sqlite3_android 
+    androidicu 
+    androidicuinit 
+    icui18n 
+    icuuc 
+    icuuc_stubdata 
+    base 
+    log 
+    utils 
+    c++ 
+    c++abi 
+    -ldl
+    )
 

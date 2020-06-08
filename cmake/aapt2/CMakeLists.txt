@@ -184,5 +184,22 @@ add_library(aapt2_jni STATIC ${LIBAAPT2_JNI_SRC_FILES})
 target_link_libraries(aapt2_jni)
 
 add_executable(aapt2 ${AAPT2_SRC_FILES})
-target_link_libraries(aapt2 aapt2_static androidfw utils log cutils expat ziparchive png base protobuf-cpp-lite buildversion z c++ c++abi -lm -ldl)
+target_link_libraries(aapt2 
+    aapt2_static 
+    androidfw 
+    utils 
+    log 
+    cutils 
+    expat 
+    ziparchive 
+    png 
+    base 
+    protobuf-cpp-lite 
+    buildversion 
+    z 
+    c++ 
+    c++abi 
+    -lm 
+    -ldl
+    )
 

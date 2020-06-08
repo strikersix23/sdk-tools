@@ -27,4 +27,18 @@ add_library(ext2_misc STATIC ${MISC}/create_inode.c)
 target_link_libraries(ext2_misc)
 
 add_executable(mke2fs ${MKE2FS_SRC_FILES})
-target_link_libraries(mke2fs ext2_misc ext2_blkid ext2fs ext2_uuid  ext2_e2p ext2_com_err ext2_quota sparse base z c++ c++abi -ldl)
+target_link_libraries(mke2fs 
+    ext2_misc 
+    ext2_blkid 
+    ext2fs 
+    ext2_uuid  
+    ext2_e2p 
+    ext2_com_err 
+    ext2_quota 
+    sparse 
+    base 
+    z 
+    c++ 
+    c++abi 
+    -ldl
+    )

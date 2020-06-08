@@ -86,8 +86,6 @@ set(CMAKE_CXX_FLAGS " \
     -DANDROID_BASE_UNIQUE_FD_DISABLE_IMPLICIT_CONVERSION=1 \
     ")
 
-set(CMAKE_EXE_LINKER_FLAGS "-static")
-
 include_directories(
     ${adb_headers}
     ${libbase_headers}
@@ -111,6 +109,17 @@ include_directories(
     ${ADB}/fastdeploy/proto
     ${ADB}/fastdeploy/proto/system/core/adb
     )
+
+link_directories(
+    ${CMAKE_SOURCE_DIR}/cmake/platform-tools/lib/boringssl/build/crypto
+    ${CMAKE_SOURCE_DIR}/cmake/platform-tools/lib/boringssl/build/ssl
+    )
+
+set(CMAKE_EXE_LINKER_FLAGS "-static")
+
+# system/core/adb/adb.cpp
+# comment platform_tools_version.h
+add_definitions(-DPLATFORM_TOOLS_VERSION="30.0.0")
 
 add_library(adb_host STATIC ${LIBADB_HOST_SRC_FILES})
 target_link_libraries(adb_host)

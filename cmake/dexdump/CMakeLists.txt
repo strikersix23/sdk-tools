@@ -24,4 +24,16 @@ set(CMAKE_CXX_FLAGS "${GLOBAL_CXX_FLAGS}")
 set(CMAKE_EXE_LINKER_FLAGS "-static")
 
 add_executable(dexdump ${DEXDUMP_SRC_FILES})
-target_link_libraries(dexdump dexfile artbase artpalette ziparchive base log z c++ c++abi -lm -ldl)
+target_link_libraries(dexdump 
+    dexfile 
+    artbase 
+    artpalette 
+    ziparchive 
+    base 
+    log 
+    z 
+    c++ 
+    c++abi 
+    -lm 
+    -ldl
+    )
