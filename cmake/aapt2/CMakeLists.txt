@@ -201,4 +201,3 @@ target_link_libraries(aapt2
     -lm 
     -ldl
     )
-
