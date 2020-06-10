@@ -9,12 +9,15 @@ set(GLOBAL_C_FLAGS "-Wall -fPIC -Wno-unused -Wno-unused-parameter -fcolor-diagno
 
 # use libcxx need set -isystem
 set(GLOBAL_CXX_FLAGS " \
-    -nostdinc++ -fPIC \
+    -nostdinc++ \
+    -Wall \
+    -fPIC \
     -fcolor-diagnostics \
     -isystem ${libcxx_headers} \
     -isystem ${libcxxabi_headers} \
-    -Wall -Wno-unknown-attributes \
-    -Wno-unused -Wno-unused-parameter \
+    -Wno-unknown-attributes \
+    -Wno-unused \
+    -Wno-unused-parameter \
     -Wno-unused-command-line-argument \
     ")
 
