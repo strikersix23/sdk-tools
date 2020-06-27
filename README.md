@@ -15,7 +15,7 @@ ArchLinux only downloads source code, we are not using it to compile.
 
 If you need other tools, please add the cmake script of the corresponding tool under build-tools/cmake
 
-you can use prebuilt ndk-r21 to compile, ndk from [termux-ndk](https://github.com/Lzhiyong/termux-ndk) or use termux's clang to compile, If you want to compile statically with termux, you need install ndk-multilib, pkg install ndk-multilib
+you can use prebuilt ndk-r21 to compile, ndk from [termux-ndk](https://github.com/Lzhiyong/termux-ndk) or use termux's clang to compile, If you want to compile statically with termux's clang, you need install ndk-multilib, pkg install ndk-multilib
 and add LDFLAGS="-static -fuse-ld=lld", lld compatibility is better and faster.
 
 
