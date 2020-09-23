@@ -16,7 +16,7 @@ is recommended, Of course you can also install other Linux distributions, ubuntu
 
 ArchLinux only downloads source code, we are not using it to compile.
 
-you can use [termux-ndk](https://github.com/Lzhiyong/termux-ndk) or termux's clang to compile
+you can use [termux-ndk](https://github.com/Lzhiyong/termux-ndk) or termux's clang to compile, 
 please note if you use termux's clang to static compilation, need to pkg install ndk-multilib
 
 ```bash
@@ -84,7 +84,8 @@ genrule {
 ```
 
  **** 
-screenshot.jpg
+## Screenshots
+
 <a href="./screenshot/Screenshot_01.jpg"><img src="./screenshot/Screenshot_01.jpg" width="50%" /></a>
 <a href="./screenshot/Screenshot_02.jpg"><img src="./screenshot/Screenshot_02.jpg" width="50%" /></a>
 
