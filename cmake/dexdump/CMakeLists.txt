@@ -34,6 +34,6 @@ target_link_libraries(dexdump
     z 
     c++ 
     c++abi 
-    -lm 
-    -ldl
+    m 
+    dl
     )

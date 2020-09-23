@@ -29,7 +29,15 @@ include_directories(
     ${libsystem_headers}
     )
 
-set(CMAKE_CXX_FLAGS "${GLOBAL_CXX_FLAGS} -DFAKE_LOG_DEVICE=1 -DLIBLOG_LOG_TAG=1006 -DSNET_EVENT_LOG_TAG=1397638484")
+set(CMAKE_CXX_FLAGS " \
+    ${GLOBAL_CXX_FLAGS} \
+    -Wall \
+    -Werror \
+    -Wextra \
+    -Wno-c99-designator \
+    -DLIBLOG_LOG_TAG=1006 \
+    -DSNET_EVENT_LOG_TAG=1397638484 \
+    ")
 
 add_library(log STATIC ${LIBLOG_SRC_FILES})
 

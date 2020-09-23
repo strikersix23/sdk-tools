@@ -15,5 +15,6 @@ add_subdirectory(libbrotli)
 add_subdirectory(liblz4)
 add_subdirectory(libext4_utils)
 add_subdirectory(liblp)
+add_subdirectory(libzstd)
 add_subdirectory(mdnsresponder)
 

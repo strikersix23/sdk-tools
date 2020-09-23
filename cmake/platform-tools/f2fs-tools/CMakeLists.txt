@@ -74,7 +74,16 @@ add_library(f2fs_fmt STATIC ${LIBF2FS_FMT_SRC_FILES})
 target_link_libraries(f2fs_fmt)
 
 add_executable(make_f2fs ${MAKE_F2FS_SRC_FILES})
-target_link_libraries(make_f2fs f2fs_fmt ext2_uuid sparse base z c++ c++abi -ldl)
+target_link_libraries(make_f2fs 
+    f2fs_fmt 
+    ext2_uuid 
+    sparse 
+    base 
+    z 
+    c++ 
+    c++abi 
+    dl
+    )
 
 add_executable(f2fs_sload ${F2FS_SLOAD_SRC_FILES})
 target_link_libraries(f2fs_sload 
@@ -90,5 +99,5 @@ target_link_libraries(f2fs_sload
     z 
     c++ 
     c++abi 
-    -ldl
+    dl
     )

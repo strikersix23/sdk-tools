@@ -10,11 +10,13 @@ set(CMAKE_CXX_FLAGS " \
     ${GLOBAL_CXX_FLAGS} \
     -D_REENTRANT \
     -DU_COMMON_IMPLEMENTATION \
+    -UU_HIDE_INTERNAL_API \
     -O3 \
     -fvisibility=hidden \
     -Wall \
     -Werror \
     -Wno-unused-parameter \
+    -Wno-macro-redefined \
     -Wno-missing-field-initializers \
     -Wno-sign-compare \
     -Wno-deprecated-declarations \
@@ -25,7 +27,10 @@ set(CMAKE_CXX_FLAGS " \
     -frtti \
     ")
 
-include_directories(${LIBICUUC})
+include_directories(
+    ${LIBICUUC}
+    ${icu_headers}
+    )
 
 add_library(icuuc STATIC ${LIBICUUC_SRC_FILES})
 target_link_libraries(icuuc)

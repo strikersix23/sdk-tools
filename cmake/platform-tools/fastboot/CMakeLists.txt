@@ -28,7 +28,7 @@ include_directories(
     ${libziparchive_headers}
     ${libdiagnose_usb_headers}
     ${gtest_headers}
-    ${AOSP}/external/avb
+    ${u-boot_headers}
     ${AOSP}/system/tools/mkbootimg/include/bootimg
     )
 
@@ -58,10 +58,11 @@ target_link_libraries(fastboot
     diagnose_usb
     base
     cutils
+    cutils_sockets
     gtest
     crypto
     z
     c++
     c++abi
-    -ldl
+    dl
     )

@@ -1,28 +1,23 @@
-aapt-cmake-build has been renamed to build-tools
+The source code from AOSP master branch
 
-update android version to android-11
+At first, we cannot directly use the termux to build AOSP, because blueprint and soong compilation fails for aarch64 architecture
 
-At first, we cannot directly use the termux to build AOSP, because blueprint and soong compilation fails, but if you can successfully compile blueprint and soong, maybe you can use termux to compile AOSP, we only need to replace the prebuilts toolchain.
+So we use cmake to build each tool separately, which includes android-sdk/build-tools and platform-tools, such as aapt aapt2 aidl zipalign adb fastboot ... etc, If you need other tools, please add the CMakeLists.txt under build-tools/cmake
 
-Since it is not possible to compile android-sdk directly through the mm sdk command, so choose cmake to compile each tool separately.
-
-Building android-sdk/build-tools and platform-tools, such as aapt aapt2 aidl zipalign adb fastboot ... etc, which supports compiling with Termux. 
-
-In order to download the source code more conveniently, termux needs to install aarch64 version of Linux. [TermuxArch](https://github.com/SDRausty/TermuxArch) 
-is recommended, Of course you can also install other Linux distributions, ubuntu debian kali ... etc.
-
-ArchLinux only downloads source code, we are not using it to compile.
-
-If you need other tools, please add the cmake script of the corresponding tool under build-tools/cmake
-
-you can use prebuilt ndk-r21 to compile, ndk from [termux-ndk](https://github.com/Lzhiyong/termux-ndk) or use termux's clang to compile, If you want to compile statically with termux's clang, you need install ndk-multilib, pkg install ndk-multilib
-and add LDFLAGS="-static -fuse-ld=lld", lld compatibility is better and faster.
-
+Currently only supports aarch64 architecture, if you want to compile other architectures such as armeabi-v7a x86 x86_64, you need to refer to Android.bp to modify the corresponding CMakeLists.txt
 
 The compiled binary files are placed in the [android-sdk](https://github.com/Lzhiyong/termux-ndk/releases)/build-tools and platform-tools
 
  **** 
 ### How to build
+
+Termux needs to install aarch64 version of Linux. [TermuxArch](https://github.com/SDRausty/TermuxArch) 
+is recommended, Of course you can also install other Linux distributions, ubuntu debian kali ... etc.
+
+ArchLinux only downloads source code, we are not using it to compile.
+
+you can use [termux-ndk](https://github.com/Lzhiyong/termux-ndk) or termux's clang to compile
+please note if you use termux's clang to static compilation, need to pkg install ndk-multilib
 
 ```bash
 # install repo
@@ -34,7 +29,7 @@ cd build-tools/android-11
 repo init -u https://android.googlesource.com/platform/manifest -b master --partial-clone
 
 # for china
-repo init -u https://android.googlesource.com/platform/manifest -b master --partial-clone
+repo init -u https://mirrors.tuna.tsinghua.edu.cn/git/AOSP/platform/manifest -b master --partial-clone
 
 repo sync -c -j4
 
@@ -45,6 +40,7 @@ exit
 # start building...
 cd build-tools && mkdir build && cd build
 
+# settings the ndk toolchain
 TOOLCHAIN=/path/to/android-ndk-r21/toolchains/llvm/prebuilt/linux-aarch64
 
 cmake -G 'Ninja' \
@@ -57,19 +53,39 @@ cmake -G 'Ninja' \
 ninja -j16
 ```
 
+**** 
+### Issues
 
-If you download the source code that is not android-11, you need to modify build-tools/CMakeLists.txt
+Every Android version has a lot of changes, direct compilation will fail, you need to refer to the Android.bp file and modify the corresponding CMakeLists.txt and source code
 
-set (AOSP android-11) Change to download the corresponding Android version.
+aosp/external/boringssl has link errors, therefore you need to manually execute build-tools/cmake/platform-tools/lib/boringssl/build.sh to build libcrypto and libssl
 
-the source code of each Android version has been changed, and direct compilation will fail.
+adb dosen't support --fastdeploy option, because I don't know how to manually generate deployagent.inc and deployagentscript.inc header files
 
-You need to refer to the Android.bp file and modify the corresponding CMakeLists.txt
+If anyone knows, please submit to issue
 
-reference [lizhangqu](https://github.com/lizhangqu/aapt-cmake-buildscript.git)
+```bash
+// from aosp/system/core/adb/Android.bp
+// Note: using pipe for xxd to control the variable name generated
+// the default name used by xxd is the path to the input file.
+java_genrule {
+    name: "bin2c_fastdeployagent",
+    out: ["deployagent.inc"],
+    srcs: [":deployagent"],
+    cmd: "(echo 'unsigned char kDeployAgent[] = {' && xxd -i <$(in) && echo '};') > $(out)",
+}
 
-
+genrule {
+    name: "bin2c_fastdeployagentscript",
+    out: ["deployagentscript.inc"],
+    srcs: ["fastdeploy/deployagent/deployagent.sh"],
+    cmd: "(echo 'unsigned char kDeployAgentScript[] = {' && xxd -i <$(in) && echo '};') > $(out)",
+}
+```
 
  **** 
 screenshot.jpg
-![image](https://raw.githubusercontent.com/Lzhiyong/build-tools/master/screenshot/screenshot.jpg)
+<a href="./screenshot/Screenshot_01.jpg"><img src="./screenshot/Screenshot_01.jpg" width="50%" /></a>
+<a href="./screenshot/Screenshot_02.jpg"><img src="./screenshot/Screenshot_02.jpg" width="50%" /></a>
+
+reference [lizhangqu](https://github.com/lizhangqu/aapt-cmake-buildscript.git)

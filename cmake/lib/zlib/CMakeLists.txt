@@ -23,6 +23,7 @@ set(ZLIB_SRC_FILES
     ${ZLIB}/trees.c
     ${ZLIB}/uncompr.c
     ${ZLIB}/zutil.c
+    ${AOSP}/prebuilts/ndk/r21/sources/android/cpufeatures/cpu-features.c
     )
 
 # android-11/prebuilts/ndk/r21/sources/android/cpufeatures/cpu-features.c
@@ -31,9 +32,25 @@ list(APPEND ZLIB_SRC_FILES ${AOSP}/prebuilts/ndk/r21/sources/android/cpufeatures
 include_directories(
 	${zlib_headers}
 	${cpu_features_headers}
+	${AOSP}/prebuilts/ndk/r21/sources/android/cpufeatures
 	)
 
-set(CMAKE_C_FLAGS "${GLOBAL_C_FLAGS} -O3 -DHAVE_HIDDEN -DZLIB_CONST -Wall -Werror -Wno-unused-variable -Wno-unused-function -DARMV8_OS_ANDROID -DARMV8_OS_LINU -DADLER32_SIMD_NEON -DINFLATE_CHUNK_SIMD_NEON -DCRC32_ARMV8_CRC32")
+set(CMAKE_C_FLAGS " \
+    ${GLOBAL_C_FLAGS} \
+    -O3 \
+    -DHAVE_HIDDEN \
+    -DZLIB_CONST \
+    -Wall \
+    -Werror \
+    -Wno-unused-variable \
+    -Wno-unused-function \
+    -DARMV8_OS_ANDROID \
+    -DARMV8_OS_LINUX \
+    -DADLER32_SIMD_NEON \
+    -DINFLATE_CHUNK_SIMD_NEON \
+    -DCRC32_ARMV8_CRC32 \
+    -DINFLATE_CHUNK_READ_64LE \
+    ")
 
 add_library(z STATIC ${ZLIB_SRC_FILES})
 target_link_libraries(z)

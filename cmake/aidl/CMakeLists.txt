@@ -19,19 +19,19 @@ endif()
 bison_target(
     LangParser ${AOSP}/system/tools/aidl/aidl_language_y.yy ${AOSP}/system/tools/aidl/aidl_language_y.cpp
     DEFINES_FILE ${AOSP}/system/tools/aidl/aidl_language_y.h
-)
+    )
 
 # generate aidl_language_l.h and aidl_language_l.cpp
 flex_target(
     LangScanner ${AOSP}/system/tools/aidl/aidl_language_l.ll ${AOSP}/system/tools/aidl/aidl_language_l.cpp
-    DEFINES_FILE ${AOSP}/system/tools/aidl/aidl_language_l.h
-)
+    DEFINES_FILE ${AOSP}/system/tools/aidl/aidl_language_l.h 
+    )
 
 # add dependency
 add_flex_bison_dependency(LangScanner LangParser)
 
 set(LIBAIDL_COMMON_SRC_FILES
-    ${BISON_LangParser_OUTPUTS}
+    #${BISON_LangParser_OUTPUTS}
     ${FLEX_LangScanner_OUTPUTS}
     ${AIDL}/aidl.cpp
     ${AIDL}/aidl_checkapi.cpp
@@ -43,6 +43,7 @@ set(LIBAIDL_COMMON_SRC_FILES
     ${AIDL}/aidl_to_cpp.cpp
     ${AIDL}/aidl_to_java.cpp
     ${AIDL}/aidl_to_ndk.cpp
+    ${AIDL}/aidl_to_rust.cpp
     ${AIDL}/ast_cpp.cpp
     ${AIDL}/ast_java.cpp
     ${AIDL}/code_writer.cpp
@@ -52,19 +53,23 @@ set(LIBAIDL_COMMON_SRC_FILES
     ${AIDL}/generate_java.cpp
     ${AIDL}/generate_java_binder.cpp
     ${AIDL}/generate_aidl_mappings.cpp
+    ${AIDL}/generate_rust.cpp
     ${AIDL}/import_resolver.cpp
     ${AIDL}/line_reader.cpp
+    ${AIDL}/logging.cpp
     ${AIDL}/io_delegate.cpp
     ${AIDL}/options.cpp
+    ${AIDL}/parser.cpp
     )
 
 include_directories(
     ${aidl_headers}
     ${libbase_headers}
     ${liblog_headers}
+    ${fmtlib_headers}
     )
 
-set(CMAKE_CXX_FLAGS "${GLOBAL_CXX_FLAGS} -O0 -Wextra")
+set(CMAKE_CXX_FLAGS "${GLOBAL_CXX_FLAGS} -O0 -g -Wextra -Wno-defaulted-function-deleted")
 # static linking
 set(CMAKE_EXE_LINKER_FLAGS "-static")
 
@@ -79,12 +84,12 @@ target_link_libraries(aidl
     log 
     c++ 
     c++abi 
-    -ldl
+    dl
     )
 
 
 # aidl-cpp
-#set(CMAKE_CXX_FLAGS "${GLOBAL_CXX_FLAGS} -O0 -Wextra -DAIDL_CPP_BUILD")
+#set(CMAKE_CXX_FLAGS "${GLOBAL_CXX_FLAGS} -O0 -g -Wextra -DAIDL_CPP_BUILD")
 #add_executable(aidl-cpp ${AIDL}/main.cpp)
 #target_link_libraries(aidl-cpp)
 

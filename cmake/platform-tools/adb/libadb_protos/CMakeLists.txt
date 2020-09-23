@@ -63,7 +63,13 @@ include_directories(
     ${protobuf_headers}
     )
 
-set(CMAKE_CXX_FLAGS "${GLOBAL_CXX_FLAGS} -Wextra -Wthread-safety")
+set(CMAKE_CXX_FLAGS " \
+    ${GLOBAL_CXX_FLAGS} \
+    -Wall \
+    -Werror \
+    -Wextra \
+    -Wthread-safety \
+    ")
 
 add_library(adb_protos STATIC ${LIBADB_PROTOS_SRC_FILES})
 target_link_libraries(adb_protos)

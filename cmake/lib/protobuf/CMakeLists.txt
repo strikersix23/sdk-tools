@@ -182,7 +182,17 @@ include_directories(
     ${protobuf_headers}
     )
 
-set(CMAKE_CXX_FLAGS "${GLOBAL_CXX_FLAGS} -frtti -Wall -Werror -Wno-sign-compare -Wno-sign-promo -Wno-unused-function -DHAVE_ZLIB=1")
+set(CMAKE_CXX_FLAGS " \
+    ${GLOBAL_CXX_FLAGS} \
+    -frtti \
+    -Wall \
+    -Werror \
+    -Wno-sign-compare \
+    -Wno-sign-promo \
+    -Wno-unused-function \
+    -Wno-inconsistent-missing-override \
+    -DHAVE_ZLIB=1 \
+    ")
 
 add_library(protobuf-cpp-lite STATIC ${LIBPROTOBUF_CPP_LITE_SRC_FILES})
 target_link_libraries(protobuf-cpp-lite)

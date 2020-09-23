@@ -24,11 +24,22 @@ set(LIBBASE_SRC_FILES
     )
 
 
-include_directories(${libbase_headers})
+include_directories(
+    ${liblog_headers}
+    ${libbase_headers}
+    )
 
-set(CMAKE_C_FLAGS  "-Wall -Werror -Wextra -D_FILE_OFFSET_BITS=64")
+set(CMAKE_C_FLAGS  " \
+    -Wall \
+    -Werror \
+    -Wextra \
+    -D_FILE_OFFSET_BITS=64 \
+    ")
 
-set(CMAKE_CXX_FLAGS "${GLOBAL_CXX_FLAGS} -Wexit-time-destructors")
+set(CMAKE_CXX_FLAGS " \
+    ${GLOBAL_CXX_FLAGS} \
+    -Wexit-time-destructors \
+    ")
 
 add_library(base STATIC ${LIBBASE_SRC_FILES})
 target_link_libraries(base)

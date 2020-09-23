@@ -125,6 +125,7 @@ include_directories(
     ${expat_headers}
     ${libbuildversion_headers}
     ${gtest_headers}
+    ${libidmap2_policies_headers}
     )
 
 message(STATUS "CMAKE_BINARY_DIR: ${CMAKE_BINARY_DIR}")
@@ -170,8 +171,21 @@ else ()
 endif ()
 
 
-set(CMAKE_C_FLAGS "${GLOBAL_C_FLAGS} -Wall -Werror -Wno-unused-parameter")
-set(CMAKE_CXX_FLAGS "${GLOBAL_CXX_FLAGS} -Wno-missing-field-initializers -fno-exceptions -fno-rtti")
+set(CMAKE_C_FLAGS " \
+    ${GLOBAL_C_FLAGS} \
+    -Wall \
+    -Werror \
+    -Wextra \
+    -Wno-unused-parameter \
+    ")
+    
+set(CMAKE_CXX_FLAGS " \
+    ${GLOBAL_CXX_FLAGS} \
+    -Wno-missing-field-initializers \
+    -Wno-defaulted-function-deleted \
+    -fno-exceptions \
+    -fno-rtti \
+    ")
 
 # static linking
 set(CMAKE_EXE_LINKER_FLAGS "-static")
@@ -192,12 +206,12 @@ target_link_libraries(aapt2
     ziparchive 
     png 
     base 
-    protobuf-cpp-lite 
+    protobuf-cpp-full
     buildversion 
     log
     z 
     c++ 
     c++abi 
-    -lm 
-    -ldl
+    m 
+    dl
     )

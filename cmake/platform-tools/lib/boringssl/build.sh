@@ -3,18 +3,30 @@
 # check git
 if [ ! -x "$(command -v git)" ]; then
   echo 'Warnning: git is not installed.' 
-  pkg install git
+  pkg install git 1>&1
 fi
 
 # check ninja
 if [ ! -x "$(command -v ninja)" ]; then
   echo 'Warnning: ninja is not installed.'
-  pkg install ninja
+  pkg install ninja 1>&1
+fi
+
+# check perl
+if [ ! -x "$(command -v perl)" ]; then
+  echo 'Warnning: perl is not installed.'
+  pkg install perl 1>&1
+fi
+
+# check go
+if [ ! -x "$(command -v go)" ]; then
+  echo 'Warnning: golang is not installed.'
+  pkg install golang 1>&1
 fi
 
 # check boringssl
 if [ ! -f "boringssl/CMakeLists.txt" ];then
-  git clone https://github.com/google/boringssl
+  git clone https://github.com/google/boringssl 1>&1
 fi
 
 # check build directory
@@ -26,14 +38,14 @@ fi
 
 # set ndk toolchain
 # /path/to/android-ndk-r21/toolchains/llvm/prebuilt/linux-aarch64
-TOOLCHAIN=$HOME/android/android-ndk-r21/toolchains/llvm/prebuilt/linux-aarch64
+TOOLCHAIN=$HOME/toolchain/android-ndk-r21/toolchains/llvm/prebuilt/linux-aarch64
 
 cmake -G 'Ninja' \
     -DCMAKE_C_COMPILER=$TOOLCHAIN/bin/aarch64-linux-android29-clang \
     -DCMAKE_CXX_COMPILER=$TOOLCHAIN/bin/aarch64-linux-android29-clang++ \
     -DCMAKE_SYSROOT=$TOOLCHAIN/sysroot \
     -DCMAKE_BUILD_TYPE=Release \
-    ../boringssl
+    ../boringssl 1>&1
     
-ninja -j16
+ninja -j16 1>&1
 

@@ -5,7 +5,13 @@ project(cmake)
 set(CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake/modules)
 
 # set cflags and cxxflags
-set(GLOBAL_C_FLAGS "-Wall -fPIC -Wno-unused -Wno-unused-parameter -fcolor-diagnostics")
+set(GLOBAL_C_FLAGS " \
+    -fPIC \
+    -Wall \
+    -Wno-unused \
+    -Wno-unused-parameter \
+    -fcolor-diagnostics \
+    ")
 
 # use libcxx need set -isystem
 set(GLOBAL_CXX_FLAGS " \
@@ -16,6 +22,7 @@ set(GLOBAL_CXX_FLAGS " \
     -isystem ${libcxx_headers} \
     -isystem ${libcxxabi_headers} \
     -Wno-unknown-attributes \
+    -Wno-defaulted-function-deleted \
     -Wno-unused \
     -Wno-unused-parameter \
     -Wno-unused-command-line-argument \
@@ -47,7 +54,7 @@ endif()
 include_directories(
     ${libcxx_headers}
     ${libcxxabi_headers}	
-)
+    )
 
 # add subproject
 add_subdirectory(lib)
@@ -57,4 +64,6 @@ add_subdirectory(aidl)
 add_subdirectory(zipalign)
 add_subdirectory(dexdump)
 add_subdirectory(split-select)
+
+# building platform tools
 add_subdirectory(platform-tools)

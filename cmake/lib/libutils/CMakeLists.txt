@@ -5,11 +5,11 @@ project(libutils)
 set(LIBUTILS ${AOSP}/system/core/libutils)
 
 set(LIBUTILS_SRC_FILES
+    ${LIBUTILS}/Errors.cpp
     ${LIBUTILS}/FileMap.cpp
     ${LIBUTILS}/JenkinsHash.cpp
     ${LIBUTILS}/NativeHandle.cpp
     ${LIBUTILS}/Printer.cpp
-    ${LIBUTILS}/PropertyMap.cpp
     ${LIBUTILS}/RefBase.cpp
     ${LIBUTILS}/SharedBuffer.cpp
     ${LIBUTILS}/StopWatch.cpp
@@ -38,7 +38,12 @@ include_directories(
     ${libvndksupport_headers}
     )
 
-set(CMAKE_CXX_FLAGS "${GLOBAL_CXX_FLAGS}")
+set(CMAKE_CXX_FLAGS " \
+    ${GLOBAL_CXX_FLAGS} \
+    -Wall \
+    -Werror \
+    -fvisibility=protected \
+    ")
 
 add_library(utilscallstack STATIC ${LIBUTILS}/CallStack.cpp)
 target_link_libraries(utilscallstack)

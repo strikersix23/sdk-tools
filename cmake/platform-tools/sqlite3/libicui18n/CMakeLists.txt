@@ -16,6 +16,7 @@ set(CMAKE_CXX_FLAGS " \
     -Werror \
     -Wno-unused-parameter \
     -Wno-unused-const-variable \
+    -Wno-implicit-int-float-conversion \
     -Wno-unneeded-internal-declaration \
     -Wno-unreachable-code-loop-increment \
     -DANDROID_LINK_SHARED_ICU4C \
@@ -27,6 +28,7 @@ set(CMAKE_CXX_FLAGS " \
 include_directories(
     ${I18N}
     ${I18N}/../common
+    ${icu_headers}
     )
 
 add_library(icui18n STATIC ${LIBICUI18N_SRC_FILES})

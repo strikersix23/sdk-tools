@@ -7,7 +7,9 @@ add_subdirectory(libadb_crypto)
 add_subdirectory(libadb_pairing_auth)
 add_subdirectory(libadb_pairing_connection)
 add_subdirectory(libadb_tls_connection)
+add_subdirectory(libadb_sysdeps)
 add_subdirectory(libfastdeploy_host)
+#add_subdirectory(deployagent)
 
 set(ADB ${AOSP}/system/core/adb)
 
@@ -48,6 +50,7 @@ set(LIBADB_HOST_SRC_FILES
     ${ADB}/client/usb_dispatch.cpp
     ${ADB}/client/transport_local.cpp
     ${ADB}/client/transport_mdns.cpp
+    ${ADB}/client/mdns_utils.cpp
     ${ADB}/client/transport_usb.cpp
     ${ADB}/client/pairing/pairing_client.cpp
     )
@@ -76,6 +79,7 @@ set(CMAKE_CXX_FLAGS " \
     -Wextra \
     -Werror \
     -Wexit-time-destructors \
+    -Wno-thread-safety-attributes \
     -Wno-unused-parameter \
     -Wno-missing-field-initializers \
     -Wno-thread-safety \
@@ -105,6 +109,7 @@ include_directories(
     ${libsystem_headers}
     ${gtest_headers}
     ${androidfw_headers}
+    ${zstd_headers}
     ${ADB}
     ${ADB}/fastdeploy/proto
     ${ADB}/fastdeploy/proto/system/core/adb
@@ -126,12 +131,14 @@ target_link_libraries(adb_host)
 
 add_executable(adb ${ADB_SRC_FILES})
 target_link_libraries(adb 
-    adb_host  
+    adb_host
+    adb_pairing_server
     adb_pairing_connection
     adb_tls_connection
     adb_pairing_auth 
     adb_crypto
     adb_protos
+    adb_sysdeps
     androidfw
     brotli
     crypto_utils
@@ -147,10 +154,12 @@ target_link_libraries(adb
     base
     utils
     cutils
+    cutils_sockets
     buildversion
     log
+    zstd
     z
     c++
     c++abi
-    -ldl
+    dl
     )
