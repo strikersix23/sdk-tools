@@ -80,8 +80,8 @@ set(libutils_headers
     )
         
 set(libziparchive_headers
-    ${AOSP}/system/core/libziparchive
-    ${AOSP}/system/core/libziparchive/include
+    ${AOSP}/system/libziparchive
+    ${AOSP}/system/libziparchive/include
     )
         
 set(libnativehelper_headers
@@ -129,18 +129,15 @@ set(libbuildversion_headers
     ${AOSP}/build/soong/cc/libbuildversion/include
     )
 
-
 set(gtest_headers                         
     ${AOSP}/external/googletest/googletest/include           
     ${AOSP}/external/googletest/googlemock/include                   
     )
 	
-	
 set(cpu_features_headers                         
     ${AOSP}/external/cpu_features/include                              
     )
 	
-
 set(libartpalette_headers                        
     ${AOSP}/art/libartpalette/include                              
     )
@@ -181,6 +178,7 @@ set(sqlite_headers
 set(icu_headers                        
     ${AOSP}/external/icu/libandroidicu/include
     ${AOSP}/external/icu/libandroidicuinit/include
+    ${AOSP}/external/icu/icu4c/source/common
     )
 	
 set(libsparse_headers                        
@@ -206,6 +204,7 @@ set(libpackagelistparser_headers
     
 set(e2fsprogs_headers                        
     ${AOSP}/external/e2fsprogs/lib
+    ${AOSP}/external/e2fsprogs/lib/uuid
     )
     
 set(f2fs_headers                        
@@ -221,6 +220,7 @@ set(libcrypto_utils_headers
     )
     
 set(adb_headers
+    ${AOSP}/system/core/adb
     ${AOSP}/system/core/adb/crypto/include
     ${AOSP}/system/core/adb/tls/include
     ${AOSP}/system/core/adb/pairing_auth/include
@@ -260,4 +260,20 @@ set(liblp_headers
     ${AOSP}/system/core/fs_mgr/liblp/include
     )
     
+set(fmtlib_headers                        
+    ${AOSP}/external/fmtlib/include
+    )
+    
+set(libidmap2_policies_headers                        
+    ${AOSP}/frameworks/base/cmds/idmap2/libidmap2_policies/include
+    )
+    
+set(libavb_headers                        
+    ${AOSP}/external/u-boot/lib
+    )
+   
+set(zstd_headers                        
+    ${AOSP}/external/zstd/lib
+    )
+       
 add_subdirectory(cmake)

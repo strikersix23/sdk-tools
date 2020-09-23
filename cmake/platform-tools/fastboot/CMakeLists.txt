@@ -28,7 +28,7 @@ include_directories(
     ${libziparchive_headers}
     ${libdiagnose_usb_headers}
     ${gtest_headers}
-    ${u-boot_headers}
+    ${libavb_headers}
     ${AOSP}/system/tools/mkbootimg/include/bootimg
     )
 
