@@ -85,7 +85,7 @@ genrule {
 
  **** 
 ## Screenshots
-
+%%html
 <a href="./screenshot/Screenshot_01.jpg"><img src="./screenshot/Screenshot_01.jpg" width="50%" /></a>
 <a href="./screenshot/Screenshot_02.jpg"><img src="./screenshot/Screenshot_02.jpg" width="50%" /></a>
 
