@@ -86,8 +86,6 @@ genrule {
  **** 
 ## Screenshots
 
-<a href="./screenshot/Screenshot_01.jpg"><img src="./screenshot/Screenshot_01.jpg" width="30%" /></a>
-<a href="./screenshot/Screenshot_02.jpg"><img src="./screenshot/Screenshot_02.jpg" width="30%" /></a>
-<a href="./screenshot/Screenshot_03.jpg"><img src="./screenshot/Screenshot_03.jpg" width="30%" /></a>
-
+ <img src="./screenshot/Screenshot_01.jpg" width = "300" height = "200" alt="Screenshot_01" align=left />
+ 
 reference [lizhangqu](https://github.com/lizhangqu/aapt-cmake-buildscript.git)
