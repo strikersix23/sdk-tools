@@ -124,7 +124,7 @@ set(CMAKE_EXE_LINKER_FLAGS "-static")
 
 # system/core/adb/adb.cpp
 # comment platform_tools_version.h
-add_definitions(-DPLATFORM_TOOLS_VERSION="30.0.0")
+add_definitions(-DPLATFORM_TOOLS_VERSION="30.0.3")
 
 add_library(adb_host STATIC ${LIBADB_HOST_SRC_FILES})
 target_link_libraries(adb_host)

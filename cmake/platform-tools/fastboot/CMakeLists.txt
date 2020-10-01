@@ -39,7 +39,7 @@ link_directories(
 
 # system/core/fastboot/fastboot.cpp
 # comment platform_tools_version.h
-add_definitions(-DPLATFORM_TOOLS_VERSION="30.0.0")
+add_definitions(-DPLATFORM_TOOLS_VERSION="30.0.3")
 
 add_library(fastboot_host STATIC ${LIBFASTBOOT_SRC_FILES})
 target_link_libraries(fastboot_host)
