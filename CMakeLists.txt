@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.14.2)
 
-project(build-tools)
+project(sdk-tools)
 
 # android source code 
 set(AOSP ${CMAKE_SOURCE_DIR}/android-11)
