@@ -23,13 +23,13 @@ please note if you use termux's clang to static compilation, need to pkg install
 # install repo
 pacman -S repo
 
-cd build-tools/android-11
+cd sdk-tools/android-11
 
 # download source code
-repo init -u https://android.googlesource.com/platform/manifest -b master --partial-clone
+repo init -u https://android.googlesource.com/platform/manifest -b master
 
 # for china
-repo init -u https://mirrors.tuna.tsinghua.edu.cn/git/AOSP/platform/manifest -b master --partial-clone
+repo init -u https://mirrors.tuna.tsinghua.edu.cn/git/AOSP/platform/manifest -b master
 
 repo sync -c -j4
 
@@ -38,7 +38,7 @@ exit
 
 
 # start building...
-cd build-tools && mkdir build && cd build
+cd sdk-tools && mkdir build && cd build
 
 # settings the ndk toolchain
 TOOLCHAIN=/path/to/android-ndk-r21d/toolchains/llvm/prebuilt/linux-aarch64
