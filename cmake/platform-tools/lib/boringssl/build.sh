@@ -37,8 +37,14 @@ else
 fi
 
 # set ndk toolchain
-# /path/to/android-ndk-r21/toolchains/llvm/prebuilt/linux-aarch64
-TOOLCHAIN=$HOME/toolchain/android-ndk-r21/toolchains/llvm/prebuilt/linux-aarch64
+# /path/to/android-ndk-r21d/toolchains/llvm/prebuilt/linux-aarch64
+TOOLCHAIN=$HOME/toolchain/android-ndk-r21d/toolchains/llvm/prebuilt/linux-aarch64
+
+# check toolchain
+if [ ! -d "$TOOLCHAIN" ];then
+  echo "The toolchain cannot be found, please set the toolchain path correctly."
+  exit 1
+fi
 
 cmake -G 'Ninja' \
     -DCMAKE_C_COMPILER=$TOOLCHAIN/bin/aarch64-linux-android29-clang \
