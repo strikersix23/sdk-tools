@@ -1,5 +1,5 @@
 --- android-11/external/icu/libandroidicu/include/uconfig_local.h	2020-09-18 15:38:23.027412839 +0800
-+++ patch/uconfig_local.h	2020-09-18 15:36:30.004068247 +0800
++++ patches/uconfig_local.h	2020-09-18 15:36:30.004068247 +0800
 @@ -22,8 +22,10 @@
  #define U_LIB_SUFFIX_C_NAME _android
  #define U_HIDE_DRAFT_API 1

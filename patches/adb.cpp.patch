@@ -1,5 +1,5 @@
 --- android-11/system/core/adb/adb.cpp	2020-09-17 21:53:41.883308018 +0800
-+++ patch/adb.cpp	2020-09-17 21:52:20.196633214 +0800
++++ patches/adb.cpp	2020-09-17 21:52:20.196633214 +0800
 @@ -46,7 +46,7 @@
  #include <android-base/stringprintf.h>
  #include <android-base/strings.h>

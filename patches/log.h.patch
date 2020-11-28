@@ -1,5 +1,5 @@
 --- android-11/system/core/liblog/include/android/log.h	2020-09-15 21:54:26.425627279 +0800
-+++ patch/log.h	2020-09-15 21:53:20.642287392 +0800
++++ patches/log.h	2020-09-15 21:53:20.642287392 +0800
 @@ -217,6 +217,11 @@
   */
  typedef void (*__android_aborter_function)(const char* abort_message);
