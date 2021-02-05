@@ -4,9 +4,9 @@ project(sqlite3)
 
 add_subdirectory(libandroidicu)
 add_subdirectory(libandroidicuinit)
-#add_subdirectory(libicuuc)
-#add_subdirectory(libicui18n)
-#add_subdirectory(libicudata)
+add_subdirectory(libicuuc)
+add_subdirectory(libicui18n)
+add_subdirectory(libicudata)
 
 
 set(SQLITE ${AOSP}/external/sqlite)

@@ -9,7 +9,7 @@ add_subdirectory(libadb_pairing_connection)
 add_subdirectory(libadb_tls_connection)
 add_subdirectory(libadb_sysdeps)
 add_subdirectory(libfastdeploy_host)
-#add_subdirectory(deployagent)
+add_subdirectory(deployagent)
 
 set(ADB ${AOSP}/packages/modules/adb)
 
