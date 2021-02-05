@@ -75,6 +75,7 @@ include_directories(
     ${libsepol_headers}
     ${libpcre2_headers}
     ${liblog_headers}
+    ${libcutils_headers}
     ${libpackagelistparser_headers}
     ${LIBSELINUX}/src
     ${AOSP}/system/core/include

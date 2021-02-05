@@ -30,8 +30,7 @@ set(ANDROIDFW_SRC_FILES
     ${ANDROIDFW}/ZipFileRO.cpp
     ${ANDROIDFW}/ZipUtils.cpp
     )
-	
-
+    
 include_directories(
     ${androidfw_headers}
     ${libbase_headers}
@@ -43,6 +42,8 @@ include_directories(
     ${libsystem_headers}
     ${native_headers}
     ${zlib_headers}
+    ${incfs_headers}
+    ${fmtlib_headers}
     )
 
 set(CMAKE_C_FLAGS "${GLOBAL_CXX_FLAGS} -DSTATIC_ANDROIDFW_FOR_TOOLS")

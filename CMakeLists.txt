@@ -17,8 +17,8 @@ set(safe_iop_headers
     )
         
 set(libbacktrace_headers
-    ${AOSP}/system/core/libbacktrace
-    ${AOSP}/system/core/libbacktrace/include
+    ${AOSP}/system/unwinding/libbacktrace
+    ${AOSP}/system/unwinding/libbacktrace/include
     )
                 
 set(libsystem_headers
@@ -61,7 +61,7 @@ set(compiler-rt_headers
     )
 
 set(libbase_headers
-    ${AOSP}/system/core/base/include
+    ${AOSP}/system/libbase/include
     )
         
 set(libcutils_headers
@@ -70,8 +70,8 @@ set(libcutils_headers
     )
         
 set(liblog_headers
-    ${AOSP}/system/core/liblog
-    ${AOSP}/system/core/liblog/include
+    ${AOSP}/system/logging/liblog
+    ${AOSP}/system/logging/liblog/include
     )
         
 set(libutils_headers
@@ -175,10 +175,11 @@ set(sqlite_headers
     ${AOSP}/external/sqlite/dist
     )
     
-set(icu_headers                        
+set(icu_headers     
+    ${AOSP}/external/icu/icu4c/source/common                   
     ${AOSP}/external/icu/libandroidicu/include
     ${AOSP}/external/icu/libandroidicuinit/include
-    ${AOSP}/external/icu/icu4c/source/common
+    
     )
 	
 set(libsparse_headers                        
@@ -220,12 +221,12 @@ set(libcrypto_utils_headers
     )
     
 set(adb_headers
-    ${AOSP}/system/core/adb
-    ${AOSP}/system/core/adb/crypto/include
-    ${AOSP}/system/core/adb/tls/include
-    ${AOSP}/system/core/adb/pairing_auth/include
-    ${AOSP}/system/core/adb/pairing_connection/include
-    ${AOSP}/system/core/adb/proto/system/core/adb/proto
+    ${AOSP}/packages/modules/adb
+    ${AOSP}/packages/modules/adb/crypto/include
+    ${AOSP}/packages/modules/adb/tls/include
+    ${AOSP}/packages/modules/adb/pairing_auth/include
+    ${AOSP}/packages/modules/adb/pairing_connection/include
+    ${AOSP}/packages/modules/adb/proto/packages/modules/adb/proto
     )
 
 set(libdiagnose_usb_headers                        
@@ -269,11 +270,20 @@ set(libidmap2_policies_headers
     )
     
 set(libavb_headers                        
-    ${AOSP}/external/u-boot/lib
+    ${AOSP}/external/avb
     )
    
 set(zstd_headers                        
     ${AOSP}/external/zstd/lib
     )
-       
+
+set(incfs_headers
+    ${AOSP}/system/incremental_delivery/incfs/include
+    ${AOSP}/system/incremental_delivery/incfs/util/include
+    )
+
+set(fmtlib_headers                        
+    ${AOSP}/external/fmtlib/include
+    )
+    
 add_subdirectory(cmake)

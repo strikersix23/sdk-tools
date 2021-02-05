@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.14.2)
 
-project(libicuuc_stubdata)
+project(libicudata)
 
 set(STUBDATA ${AOSP}/external/icu/icu4c/source/stubdata)
 
@@ -12,4 +12,4 @@ include_directories(
     )
 
 add_library(icuuc_stubdata STATIC ${STUBDATA}/stubdata.cpp)
-target_link_libraries(icuuc_stubdata)
+target_link_libraries(icudata)

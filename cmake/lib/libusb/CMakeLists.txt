@@ -12,7 +12,7 @@ set(LIBUSB_SRC_FILES
     ${LIBUSB}/libusb/sync.c
     ${LIBUSB}/libusb/strerror.c
     ${LIBUSB}/libusb/os/linux_usbfs.c
-    ${LIBUSB}/libusb/os/poll_posix.c
+    ${LIBUSB}/libusb/os/events_posix.c
     ${LIBUSB}/libusb/os/threads_posix.c
     ${LIBUSB}/libusb/os/linux_netlink.c
     )

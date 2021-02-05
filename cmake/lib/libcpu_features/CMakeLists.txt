@@ -9,7 +9,6 @@ set(LIBCPU_FEATURES_SRC_FILES
         ${CPU_FEATURES}/src/stack_line_reader.c
         ${CPU_FEATURES}/src/string_view.c
 		${CPU_FEATURES}/src/hwcaps.c
-        ${CPU_FEATURES}/src/unix_features_aggregator.c
 		${CPU_FEATURES}/src/cpuinfo_aarch64.c
 	)
 

@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.14.2)
 
 project(libadb_pairing_connection)
 
-set(PAIRING_CONNECTION ${AOSP}/system/core/adb/pairing_connection)
+set(PAIRING_CONNECTION ${AOSP}/packages/modules/adb/pairing_connection)
 
 set(CMAKE_CXX_FLAGS "${GLOBAL_CXX_FLAGS} -Wextra -Wthread-safety")
 

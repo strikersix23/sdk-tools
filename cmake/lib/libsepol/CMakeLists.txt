@@ -74,7 +74,7 @@ set(CMAKE_C_FLAGS " \
     -D_GNU_SOURCE \
     -Wall \
     -Werror \
-    -W \
+    -Wno-void-pointer-to-enum-cast \
     -Wundef \
     -Wshadow \
     -Wno-error=missing-noreturn \

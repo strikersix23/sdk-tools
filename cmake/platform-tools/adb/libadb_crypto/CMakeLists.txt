@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.14.2)
 
 project(libadb_crypto)
 
-set(CRYPTO ${AOSP}/system/core/adb/crypto)
+set(CRYPTO ${AOSP}/packages/modules/adb/crypto)
 
 set(LIBADB_CRYPTO_SRC_FILES
     ${CRYPTO}/key.cpp

@@ -46,9 +46,23 @@ include_directories(
     ${libsystem_headers}
     ${libbuildversion_headers}
     ${native_headers}
+    ${incfs_headers}
+    ${fmtlib_headers}
     )
 
-set(CMAKE_CXX_FLAGS "${GLOBAL_CXX_FLAGS} -Wno-format-y2k -DSTATIC_ANDROIDFW_FOR_TOOLS -Wno-error=implicit-fallthrough")
+set(CMAKE_CXX_FLAGS " \
+    ${GLOBAL_CXX_FLAGS} \
+    -Wno-format-y2k \
+    -DSTATIC_ANDROIDFW_FOR_TOOLS \
+    -Wno-error=implicit-fallthrough \
+    ")
+
+# libcrypto and libssl
+include_directories(
+    ${CMAKE_SOURCE_DIR}/cmake/lib/boringssl/build/crypto
+    ${CMAKE_SOURCE_DIR}/cmake/lib/boringssl/build/ssl
+    )
+
 # static linking
 set(CMAKE_EXE_LINKER_FLAGS "-static")
 
@@ -60,7 +74,16 @@ target_link_libraries(aapt
     aapt_static 
     png 
     androidfw 
-    utils 
+    incfs_utils
+    incfs
+    fmt
+    selinux
+    pcre2
+    sepol
+    packagelistparser
+    crypto
+    ssl
+    utils
     processgroup 
     cgrouprc 
     cgrouprc_format 
@@ -68,12 +91,12 @@ target_link_libraries(aapt
     log 
     cutils 
     expat 
-    ziparchive 
+    ziparchive
     base 
     buildversion 
     z 
     c++ 
     c++abi 
-    -lm 
-    -ldl
+    m 
+    dl
     )

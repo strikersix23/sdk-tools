@@ -21,6 +21,8 @@ include_directories(
     ${liblog_headers}
     ${androidfw_headers}
     ${libsystem_headers}
+    ${incfs_headers}
+    ${fmtlib_headers}
     ${SPLIT-SELECT}/../
     )
 
@@ -33,9 +35,18 @@ target_link_libraries(split-select_static)
 
 add_executable(split-select ${SPLIT-SELECT}/Main.cpp)
 target_link_libraries(split-select 
-    split-select_static 
-    aapt_static 
+    split-select_static
+    aapt_static
     androidfw 
+    incfs_utils
+    incfs
+    fmt
+    selinux
+    pcre2
+    sepol
+    packagelistparser
+    crypto
+    ssl
     utils 
     processgroup 
     cgrouprc 
@@ -50,7 +61,7 @@ target_link_libraries(split-select
     z 
     c++ 
     c++abi 
-    -lm 
-    -ldl
+    m 
+    dl
     )
 

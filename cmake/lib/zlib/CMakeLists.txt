@@ -23,16 +23,15 @@ set(ZLIB_SRC_FILES
     ${ZLIB}/trees.c
     ${ZLIB}/uncompr.c
     ${ZLIB}/zutil.c
-    ${AOSP}/prebuilts/ndk/r21/sources/android/cpufeatures/cpu-features.c
     )
 
-# android-11/prebuilts/ndk/r21/sources/android/cpufeatures/cpu-features.c
-list(APPEND ZLIB_SRC_FILES ${AOSP}/prebuilts/ndk/r21/sources/android/cpufeatures/cpu-features.c)
+# aosp/external/angle/third_party/android_ndk/sources/android/cpufeatures/cpu-features.c
+list(APPEND ZLIB_SRC_FILES ${AOSP}/external/angle/third_party/android_ndk/sources/android/cpufeatures/cpu-features.c)
 
 include_directories(
 	${zlib_headers}
 	${cpu_features_headers}
-	${AOSP}/prebuilts/ndk/r21/sources/android/cpufeatures
+	${AOSP}/external/angle/third_party/android_ndk/sources/android/cpufeatures
 	)
 
 set(CMAKE_C_FLAGS " \

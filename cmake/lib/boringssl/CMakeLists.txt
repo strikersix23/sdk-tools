@@ -5,7 +5,6 @@ project(boringssl)
 set(BORINGSSL ${AOSP}/external/boringssl)
 
 set(LIBCRYPTO_SRC_FILES
-    ${BORINGSSL}/src/crypto/fipsmodule/bcm.c
     ${BORINGSSL}/linux-aarch64/crypto/fipsmodule/aesv8-armx64.S
     ${BORINGSSL}/linux-aarch64/crypto/fipsmodule/armv8-mont.S
     ${BORINGSSL}/linux-aarch64/crypto/fipsmodule/ghash-neon-armv8.S
@@ -14,10 +13,7 @@ set(LIBCRYPTO_SRC_FILES
     ${BORINGSSL}/linux-aarch64/crypto/fipsmodule/sha256-armv8.S
     ${BORINGSSL}/linux-aarch64/crypto/fipsmodule/sha512-armv8.S
     ${BORINGSSL}/linux-aarch64/crypto/fipsmodule/vpaes-armv8.S
-    )
-
-set(LIBCRYPTO_SRC_FILES
-    ${LIBCRYPTO_SRC_FILES}
+    ${BORINGSSL}/src/crypto/fipsmodule/bcm.c
     ${BORINGSSL}/err_data.c
     ${BORINGSSL}/src/crypto/asn1/a_bitstr.c
     ${BORINGSSL}/src/crypto/asn1/a_bool.c
@@ -60,6 +56,7 @@ set(LIBCRYPTO_SRC_FILES
     ${BORINGSSL}/src/crypto/bio/printf.c
     ${BORINGSSL}/src/crypto/bio/socket.c
     ${BORINGSSL}/src/crypto/bio/socket_helper.c
+    ${BORINGSSL}/src/crypto/blake2/blake2.c
     ${BORINGSSL}/src/crypto/bn_extra/bn_asn1.c
     ${BORINGSSL}/src/crypto/bn_extra/convert.c
     ${BORINGSSL}/src/crypto/buf/buf.c
@@ -84,21 +81,22 @@ set(LIBCRYPTO_SRC_FILES
     ${BORINGSSL}/src/crypto/conf/conf.c
     ${BORINGSSL}/src/crypto/cpu-aarch64-fuchsia.c
     ${BORINGSSL}/src/crypto/cpu-aarch64-linux.c
+    ${BORINGSSL}/src/crypto/cpu-aarch64-win.c
     ${BORINGSSL}/src/crypto/cpu-arm-linux.c
     ${BORINGSSL}/src/crypto/cpu-arm.c
     ${BORINGSSL}/src/crypto/cpu-intel.c
     ${BORINGSSL}/src/crypto/cpu-ppc64le.c
     ${BORINGSSL}/src/crypto/crypto.c
+    ${BORINGSSL}/src/crypto/curve25519/curve25519.c
     ${BORINGSSL}/src/crypto/curve25519/spake25519.c
-    ${BORINGSSL}/src/crypto/dh/check.c
-    ${BORINGSSL}/src/crypto/dh/dh.c
-    ${BORINGSSL}/src/crypto/dh/dh_asn1.c
-    ${BORINGSSL}/src/crypto/dh/params.c
+    ${BORINGSSL}/src/crypto/dh_extra/dh_asn1.c
+    ${BORINGSSL}/src/crypto/dh_extra/params.c
     ${BORINGSSL}/src/crypto/digest_extra/digest_extra.c
     ${BORINGSSL}/src/crypto/dsa/dsa.c
     ${BORINGSSL}/src/crypto/dsa/dsa_asn1.c
     ${BORINGSSL}/src/crypto/ec_extra/ec_asn1.c
     ${BORINGSSL}/src/crypto/ec_extra/ec_derive.c
+    ${BORINGSSL}/src/crypto/ec_extra/hash_to_curve.c
     ${BORINGSSL}/src/crypto/ecdh_extra/ecdh_extra.c
     ${BORINGSSL}/src/crypto/ecdsa_extra/ecdsa_asn1.c
     ${BORINGSSL}/src/crypto/engine/engine.c
@@ -121,9 +119,11 @@ set(LIBCRYPTO_SRC_FILES
     ${BORINGSSL}/src/crypto/evp/scrypt.c
     ${BORINGSSL}/src/crypto/evp/sign.c
     ${BORINGSSL}/src/crypto/ex_data.c
+    ${BORINGSSL}/src/crypto/fipsmodule/bcm.c
     ${BORINGSSL}/src/crypto/fipsmodule/fips_shared_support.c
     ${BORINGSSL}/src/crypto/fipsmodule/is_fips.c
     ${BORINGSSL}/src/crypto/hkdf/hkdf.c
+    ${BORINGSSL}/src/crypto/hpke/hpke.c
     ${BORINGSSL}/src/crypto/hrss/hrss.c
     ${BORINGSSL}/src/crypto/lhash/lhash.c
     ${BORINGSSL}/src/crypto/mem.c
@@ -149,6 +149,7 @@ set(LIBCRYPTO_SRC_FILES
     ${BORINGSSL}/src/crypto/rand_extra/deterministic.c
     ${BORINGSSL}/src/crypto/rand_extra/forkunsafe.c
     ${BORINGSSL}/src/crypto/rand_extra/fuchsia.c
+    ${BORINGSSL}/src/crypto/rand_extra/passive.c
     ${BORINGSSL}/src/crypto/rand_extra/rand_extra.c
     ${BORINGSSL}/src/crypto/rand_extra/windows.c
     ${BORINGSSL}/src/crypto/rc4/rc4.c
@@ -162,6 +163,9 @@ set(LIBCRYPTO_SRC_FILES
     ${BORINGSSL}/src/crypto/thread_none.c
     ${BORINGSSL}/src/crypto/thread_pthread.c
     ${BORINGSSL}/src/crypto/thread_win.c
+    ${BORINGSSL}/src/crypto/trust_token/pmbtoken.c
+    ${BORINGSSL}/src/crypto/trust_token/trust_token.c
+    ${BORINGSSL}/src/crypto/trust_token/voprf.c
     ${BORINGSSL}/src/crypto/x509/a_digest.c
     ${BORINGSSL}/src/crypto/x509/a_sign.c
     ${BORINGSSL}/src/crypto/x509/a_strex.c
@@ -237,16 +241,11 @@ set(LIBCRYPTO_SRC_FILES
     ${BORINGSSL}/src/crypto/x509v3/v3_pci.c
     ${BORINGSSL}/src/crypto/x509v3/v3_pcia.c
     ${BORINGSSL}/src/crypto/x509v3/v3_pcons.c
-    ${BORINGSSL}/src/crypto/x509v3/v3_pku.c
     ${BORINGSSL}/src/crypto/x509v3/v3_pmaps.c
     ${BORINGSSL}/src/crypto/x509v3/v3_prn.c
     ${BORINGSSL}/src/crypto/x509v3/v3_purp.c
     ${BORINGSSL}/src/crypto/x509v3/v3_skey.c
-    ${BORINGSSL}/src/crypto/x509v3/v3_sxnet.c
     ${BORINGSSL}/src/crypto/x509v3/v3_utl.c
-    ${BORINGSSL}/src/third_party/fiat/curve25519.c
-    ${BORINGSSL}/linux-aarch64/crypto/chacha/chacha-armv8.S
-    ${BORINGSSL}/linux-aarch64/crypto/test/trampoline-armv8.S
     )
 
 set(LIBSSL_SRC_FILES

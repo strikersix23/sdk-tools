@@ -2,6 +2,8 @@ cmake_minimum_required(VERSION 3.14.2)
 
 project(cmake)
 
+enable_language(ASM)
+
 set(CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake/modules)
 
 # set cflags and cxxflags

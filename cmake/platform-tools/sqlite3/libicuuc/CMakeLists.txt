@@ -10,7 +10,6 @@ set(CMAKE_CXX_FLAGS " \
     ${GLOBAL_CXX_FLAGS} \
     -D_REENTRANT \
     -DU_COMMON_IMPLEMENTATION \
-    -UU_HIDE_INTERNAL_API \
     -O3 \
     -fvisibility=hidden \
     -Wall \
@@ -21,7 +20,6 @@ set(CMAKE_CXX_FLAGS " \
     -Wno-sign-compare \
     -Wno-deprecated-declarations \
     -Wno-ignored-attributes \
-    -DANDROID_LINK_SHARED_ICU4C \
     -DPIC \
     -fPIC \
     -frtti \

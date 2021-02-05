@@ -4,12 +4,16 @@ project(zipalign)
 
 set(ZIPALIGN ${AOSP}/build/tools/zipalign)
 
-set(ZIPALIGN_SRC_FILES
+set(LIBZIPALIGN_SRC_FILES
     ${ZIPALIGN}/ZipAlign.cpp
     ${ZIPALIGN}/ZipEntry.cpp
     ${ZIPALIGN}/ZipFile.cpp
 	)
 
+set(ZIPALIGN_SRC_FILES
+    ${ZIPALIGN}/ZipAlignMain.cpp
+	)
+	
 include_directories(
     ${zlib_headers}
     ${libzopfli_headers}
@@ -19,6 +23,7 @@ include_directories(
     ${liblog_headers}
     ${libbase_headers}
     ${libziparchive_headers}
+    ${ZIPALIGN}/include
     )
 
 set(CMAKE_CXX_FLAGS "${GLOBAL_CXX_FLAGS}")
@@ -26,8 +31,12 @@ set(CMAKE_CXX_FLAGS "${GLOBAL_CXX_FLAGS}")
 # static linking
 set(CMAKE_EXE_LINKER_FLAGS "-static")
 
+add_library(zipalign_static STATIC ${LIBZIPALIGN_SRC_FILES})
+target_link_libraries(zipalign_static)
+
 add_executable(zipalign ${ZIPALIGN_SRC_FILES})
 target_link_libraries(zipalign 
+    zipalign_static
     utils 
     cutils 
     ziparchive 
@@ -38,6 +47,6 @@ target_link_libraries(zipalign
     z
     c++ 
     c++abi 
-    -lm 
-    -ldl
+    m 
+    dl
     )

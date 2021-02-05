@@ -6,7 +6,7 @@ find_package(Java REQUIRED)
 
 include(UseJava)
 
-set(DEPLOYAGENT ${AOSP}/system/core/adb/fastdeploy/deployagent)
+set(DEPLOYAGENT ${AOSP}/packages/modules/adb/fastdeploy/deployagent)
 
 set(DEPLOYAGENT_SRC_FILES
     ${DEPLOYAGENT}/src/com/android/fastdeploy/ApkArchive.java

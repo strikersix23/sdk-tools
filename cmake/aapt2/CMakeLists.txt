@@ -124,6 +124,8 @@ include_directories(
     ${libpng_headers}
     ${expat_headers}
     ${libbuildversion_headers}
+    ${incfs_headers}
+    ${fmtlib_headers}
     ${gtest_headers}
     ${libidmap2_policies_headers}
     )
@@ -200,6 +202,15 @@ add_executable(aapt2 ${AAPT2_SRC_FILES})
 target_link_libraries(aapt2 
     aapt2_static 
     androidfw 
+    incfs_utils
+    incfs
+    fmt
+    selinux
+    pcre2
+    sepol
+    packagelistparser
+    crypto
+    ssl
     utils 
     cutils 
     expat 

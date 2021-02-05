@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.14.2)
 
 project(libadb_tls_connection)
 
-set(TLS ${AOSP}/system/core/adb/tls)
+set(TLS ${AOSP}/packages/modules/adb/tls)
 
 set(LIBADB_TLS_CONNECTION_SRC_FILES
     ${TLS}/adb_ca_list.cpp

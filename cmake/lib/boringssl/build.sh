@@ -38,7 +38,7 @@ fi
 
 # set ndk toolchain
 # /path/to/android-ndk-r21d/toolchains/llvm/prebuilt/linux-aarch64
-TOOLCHAIN=$HOME/toolchain/android-ndk-r21d/toolchains/llvm/prebuilt/linux-aarch64
+TOOLCHAIN=$HOME/android/android-ndk-r22/toolchains/llvm/prebuilt/linux-aarch64
 
 # check toolchain
 if [ ! -d "$TOOLCHAIN" ];then
@@ -47,8 +47,8 @@ if [ ! -d "$TOOLCHAIN" ];then
 fi
 
 cmake -G 'Ninja' \
-    -DCMAKE_C_COMPILER=$TOOLCHAIN/bin/aarch64-linux-android29-clang \
-    -DCMAKE_CXX_COMPILER=$TOOLCHAIN/bin/aarch64-linux-android29-clang++ \
+    -DCMAKE_C_COMPILER=$TOOLCHAIN/bin/aarch64-linux-android30-clang \
+    -DCMAKE_CXX_COMPILER=$TOOLCHAIN/bin/aarch64-linux-android30-clang++ \
     -DCMAKE_SYSROOT=$TOOLCHAIN/sysroot \
     -DCMAKE_BUILD_TYPE=Release \
     ../boringssl 1>&1

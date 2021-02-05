@@ -4,9 +4,9 @@ project(sqlite3)
 
 add_subdirectory(libandroidicu)
 add_subdirectory(libandroidicuinit)
-add_subdirectory(libicuuc)
-add_subdirectory(libicui18n)
-add_subdirectory(libicuuc_stubdata)
+#add_subdirectory(libicuuc)
+#add_subdirectory(libicui18n)
+#add_subdirectory(libicudata)
 
 
 set(SQLITE ${AOSP}/external/sqlite)
@@ -66,6 +66,12 @@ include_directories(
     ${liblog_headers}
     )
 
+link_directories(
+    ${CMAKE_SOURCE_DIR}/cmake/platform-tools/sqlite3/libicuuc
+    ${CMAKE_SOURCE_DIR}/cmake/platform-tools/sqlite3/libicudata
+    ${CMAKE_SOURCE_DIR}/cmake/platform-tools/sqlite3/libicui18n
+    )
+
 set(CMAKE_EXE_LINKER_FLAGS "-static")
 
 add_library(sqlite3_android STATIC ${LIBSQLITE3_ANDROID_SRC_FILES})
@@ -82,7 +88,7 @@ target_link_libraries(sqlite3
     androidicuinit 
     icui18n 
     icuuc 
-    icuuc_stubdata 
+    icudata 
     base 
     log 
     utils 

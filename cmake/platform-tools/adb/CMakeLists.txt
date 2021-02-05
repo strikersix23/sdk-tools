@@ -11,7 +11,7 @@ add_subdirectory(libadb_sysdeps)
 add_subdirectory(libfastdeploy_host)
 #add_subdirectory(deployagent)
 
-set(ADB ${AOSP}/system/core/adb)
+set(ADB ${AOSP}/packages/modules/adb)
 
 set(LIBADB_SRC_FILES
     ${ADB}/adb.cpp
@@ -110,9 +110,11 @@ include_directories(
     ${gtest_headers}
     ${androidfw_headers}
     ${zstd_headers}
+    ${incfs_headers}
+    ${fmtlib_headers}
     ${ADB}
     ${ADB}/fastdeploy/proto
-    ${ADB}/fastdeploy/proto/system/core/adb
+    ${ADB}/fastdeploy/proto/packages/modules/adb
     )
 
 link_directories(
@@ -140,6 +142,15 @@ target_link_libraries(adb
     adb_protos
     adb_sysdeps
     androidfw
+    incfs_utils
+    incfs
+    fmt
+    selinux
+    pcre2
+    sepol
+    packagelistparser
+    crypto
+    ssl
     brotli
     crypto_utils
     fastdeploy_host

@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.14.2)
 
 project(libfastdeploy_host)
 
-set(FASTDEPLOY ${AOSP}/system/core/adb/fastdeploy)
+set(FASTDEPLOY ${AOSP}/packages/modules/adb/fastdeploy)
 
 set(LIBFASTDEPLOY_SRC_FILES 
    ${FASTDEPLOY}/deploypatchgenerator/apk_archive.cpp
@@ -11,14 +11,14 @@ set(LIBFASTDEPLOY_SRC_FILES
    )
 
 # check ApkEntry.pb.h
-if (EXISTS ${FASTDEPLOY}/proto/system/core/adb/fastdeploy/proto/ApkEntry.pb.cc)
-    list(APPEND LIBFASTDEPLOY_SRC_FILES ${FASTDEPLOY}/proto/system/core/adb/fastdeploy/proto/ApkEntry.pb.cc)
+if (EXISTS ${FASTDEPLOY}/proto/packages/modules/adb/fastdeploy/proto/ApkEntry.pb.cc)
+    list(APPEND LIBFASTDEPLOY_SRC_FILES ${FASTDEPLOY}/proto/packages/modules/adb/fastdeploy/proto/ApkEntry.pb.cc)
 else ()
     # generate ApkEntry.pb.h and ApkEntry.pb.cc
     execute_process(
         COMMAND ${CMAKE_BINARY_DIR}/cmake/lib/protobuf/aprotoc
-        system/core/adb/fastdeploy/proto/ApkEntry.proto
-        --cpp_out=system/core/adb/fastdeploy/proto
+        packages/modules/adb/fastdeploy/proto/ApkEntry.proto
+        --cpp_out=packages/modules/adb/fastdeploy/proto
         WORKING_DIRECTORY ${AOSP}
         )
 endif ()
@@ -33,7 +33,7 @@ include_directories(
     ${protobuf_headers}
     ${FASTDEPLOY}/../
     ${FASTDEPLOY}/proto
-    ${FASTDEPLOY}/proto/system/core/adb
+    ${FASTDEPLOY}/proto/packages/modules/adb
     )
 
 add_library(fastdeploy_host STATIC ${LIBFASTDEPLOY_SRC_FILES})

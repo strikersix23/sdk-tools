@@ -2,25 +2,24 @@ cmake_minimum_required(VERSION 3.14.2)
 
 project(libbase)
 
-set(BASE ${AOSP}/system/core/base)
+set(LIBBASE ${AOSP}/system/libbase)
 
 set(LIBBASE_SRC_FILES
-    ${BASE}/abi_compatibility.cpp
-    ${BASE}/chrono_utils.cpp
-    ${BASE}/cmsg.cpp
-    ${BASE}/file.cpp
-    ${BASE}/liblog_symbols.cpp
-    ${BASE}/logging.cpp
-    ${BASE}/mapped_file.cpp
-    ${BASE}/parsebool.cpp
-    ${BASE}/parsenetaddress.cpp
-    ${BASE}/process.cpp
-    ${BASE}/properties.cpp
-    ${BASE}/stringprintf.cpp
-    ${BASE}/strings.cpp
-    ${BASE}/threads.cpp
-    ${BASE}/test_utils.cpp
-    ${BASE}/errors_unix.cpp
+    ${LIBBASE}/abi_compatibility.cpp
+    ${LIBBASE}/chrono_utils.cpp
+    ${LIBBASE}/cmsg.cpp
+    ${LIBBASE}/file.cpp
+    ${LIBBASE}/logging.cpp
+    ${LIBBASE}/mapped_file.cpp
+    ${LIBBASE}/parsebool.cpp
+    ${LIBBASE}/parsenetaddress.cpp
+    ${LIBBASE}/process.cpp
+    ${LIBBASE}/properties.cpp
+    ${LIBBASE}/stringprintf.cpp
+    ${LIBBASE}/strings.cpp
+    ${LIBBASE}/threads.cpp
+    ${LIBBASE}/test_utils.cpp
+    ${LIBBASE}/errors_unix.cpp
     )
 
 

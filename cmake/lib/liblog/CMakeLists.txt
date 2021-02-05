@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.14.2)
 
 project(liblog)
 
-set(LOG ${AOSP}/system/core/liblog)
+set(LOG ${AOSP}/system/logging/liblog)
 
 # liblog src files
 set(LIBLOG_SRC_FILES

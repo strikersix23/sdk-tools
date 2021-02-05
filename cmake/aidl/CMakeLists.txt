@@ -33,31 +33,34 @@ add_flex_bison_dependency(LangScanner LangParser)
 set(LIBAIDL_COMMON_SRC_FILES
     #${BISON_LangParser_OUTPUTS}
     ${FLEX_LangScanner_OUTPUTS}
-    ${AIDL}/aidl.cpp
+    ${AIDL}/aidl_language_l.ll
+    ${AIDL}/aidl_language_y.yy
     ${AIDL}/aidl_checkapi.cpp
     ${AIDL}/aidl_const_expressions.cpp
     ${AIDL}/aidl_language.cpp
-    ${AIDL}/aidl_language_l.ll
-    ${AIDL}/aidl_language_y.yy
-    ${AIDL}/aidl_typenames.cpp
+    ${AIDL}/aidl_to_cpp_common.cpp
     ${AIDL}/aidl_to_cpp.cpp
     ${AIDL}/aidl_to_java.cpp
     ${AIDL}/aidl_to_ndk.cpp
     ${AIDL}/aidl_to_rust.cpp
+    ${AIDL}/aidl_typenames.cpp
+    ${AIDL}/aidl.cpp
     ${AIDL}/ast_cpp.cpp
     ${AIDL}/ast_java.cpp
     ${AIDL}/code_writer.cpp
-    ${AIDL}/generate_cpp.cpp
-    ${AIDL}/aidl_to_cpp_common.cpp
-    ${AIDL}/generate_ndk.cpp
-    ${AIDL}/generate_java.cpp
-    ${AIDL}/generate_java_binder.cpp
+    ${AIDL}/comments.cpp
+    ${AIDL}/diagnostics.cpp
     ${AIDL}/generate_aidl_mappings.cpp
+    ${AIDL}/generate_cpp.cpp
+    ${AIDL}/generate_java_binder.cpp
+    ${AIDL}/generate_java.cpp
+    ${AIDL}/generate_ndk.cpp
     ${AIDL}/generate_rust.cpp
     ${AIDL}/import_resolver.cpp
-    ${AIDL}/line_reader.cpp
-    ${AIDL}/logging.cpp
     ${AIDL}/io_delegate.cpp
+    ${AIDL}/line_reader.cpp
+    ${AIDL}/location.cpp
+    ${AIDL}/logging.cpp
     ${AIDL}/options.cpp
     ${AIDL}/parser.cpp
     )
@@ -67,6 +70,7 @@ include_directories(
     ${libbase_headers}
     ${liblog_headers}
     ${fmtlib_headers}
+    ${gtest_headers}
     )
 
 set(CMAKE_CXX_FLAGS "${GLOBAL_CXX_FLAGS} -O0 -g -Wextra -Wno-defaulted-function-deleted")
@@ -80,6 +84,8 @@ target_link_libraries(aidl-common)
 add_executable(aidl ${AIDL}/main.cpp)
 target_link_libraries(aidl 
     aidl-common 
+    fmt
+    gtest
     base 
     log 
     c++ 

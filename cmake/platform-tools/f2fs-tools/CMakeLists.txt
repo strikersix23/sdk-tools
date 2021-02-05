@@ -20,6 +20,7 @@ set(MAKE_F2FS_SRC_FILES
 set(FSCK_SRC_FILES
     ${F2FS-TOOLS}/fsck/dir.c
     ${F2FS-TOOLS}/fsck/dict.c
+    ${F2FS-TOOLS}/fsck/compress.c
     ${F2FS-TOOLS}/fsck/mkquota.c
     ${F2FS-TOOLS}/fsck/quotaio.c
     ${F2FS-TOOLS}/fsck/quotaio_tree.c
@@ -68,6 +69,7 @@ include_directories(
     ${libsparse_headers}
     ${libselinux_headers}
     ${libcutils_headers}
+    ${liblz4_headers}
     )
 
 add_library(f2fs_fmt STATIC ${LIBF2FS_FMT_SRC_FILES})
@@ -77,6 +79,7 @@ add_executable(make_f2fs ${MAKE_F2FS_SRC_FILES})
 target_link_libraries(make_f2fs 
     f2fs_fmt 
     ext2_uuid 
+    lz4
     sparse 
     base 
     z 
@@ -88,6 +91,7 @@ target_link_libraries(make_f2fs
 add_executable(f2fs_sload ${F2FS_SLOAD_SRC_FILES})
 target_link_libraries(f2fs_sload 
     ext2_uuid 
+    lz4
     selinux 
     sepol 
     sparse 
