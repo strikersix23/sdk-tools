@@ -2,7 +2,7 @@ The source code from AOSP master branch
 
 At first, we cannot directly use the termux to build AOSP, because blueprint and soong compilation fails for aarch64 architecture
 
-So we use cmake to build each tool separately, which includes android-sdk/build-tools and platform-tools, such as aapt aapt2 aidl zipalign adb fastboot ... etc, If you need other tools, please add the CMakeLists.txt under build-tools/cmake
+So we use cmake to build each tool separately, which includes android-sdk/build-tools and platform-tools, such as aapt aapt2 aidl zipalign adb fastboot ... etc, If you need other tools, please add the CMakeLists.txt under cmake
 
 Currently only supports aarch64 architecture, if you want to compile other architectures such as armeabi-v7a x86 x86_64, you need to refer to Android.bp to modify the corresponding CMakeLists.txt
 
@@ -56,9 +56,9 @@ ninja -j16
  **** 
 ## Screenshots
 
-<a href="./screenshot/Screenshot_01.jpg"><img src="./screenshot/Screenshot_01.jpg" width="30%" /></a>
-<a href="./screenshot/Screenshot_02.jpg"><img src="./screenshot/Screenshot_02.jpg" width="30%" /></a>
-<a href="./screenshot/Screenshot_03.jpg"><img src="./screenshot/Screenshot_03.jpg" width="30%" /></a>
+<a href="./screenshot/build_sdk_toos1.jpg"><img src="./screenshot/build_sdk_toos1.jpg" width="30%" /></a>
+<a href="./screenshot/build_sdk_toos2.jpg"><img src="./screenshot/build_sdk_toos2.jpg" width="30%" /></a>
+<a href="./screenshot/build_sdk_toos3.jpg"><img src="./screenshot/build_sdk_toos3.jpg" width="30%" /></a>
 
 
 **** 
@@ -66,7 +66,7 @@ ninja -j16
 
 Every Android version has a lot of changes, direct compilation will fail, you need to refer to the Android.bp file and modify the corresponding CMakeLists.txt and source code
 
-aosp/external/boringssl has link errors, therefore you need to manually execute build-tools/cmake/platform-tools/lib/boringssl/build.sh to build libcrypto and libssl
+aosp/external/boringssl has link errors, therefore you need to manually execute cmake/platform-tools/lib/boringssl/build.sh to build libcrypto and libssl
 
 adb dosen't support --fastdeploy option, because I don't know how to manually generate deployagent.inc and deployagentscript.inc header files
 
