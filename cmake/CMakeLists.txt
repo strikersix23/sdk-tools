@@ -58,8 +58,10 @@ include_directories(
     ${libcxxabi_headers}	
     )
 
-# add subproject
+# all libraries
 add_subdirectory(lib)
+
+# build tools
 add_subdirectory(aapt)
 add_subdirectory(aapt2)
 add_subdirectory(aidl)
@@ -67,5 +69,5 @@ add_subdirectory(zipalign)
 add_subdirectory(dexdump)
 add_subdirectory(split-select)
 
-# building platform tools
+# platform tools
 add_subdirectory(platform-tools)
