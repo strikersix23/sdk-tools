@@ -66,14 +66,14 @@ ninja -j16
 
 Every Android version has a lot of changes, direct compilation will fail, you need to refer to the Android.bp file and modify the corresponding CMakeLists.txt and source code
 
-aosp/external/boringssl has link errors, therefore you need to manually execute sdk-tools/cmake/platform-tools/lib/boringssl/build.sh to build libcrypto and libssl
+aosp/external/boringssl has link errors, therefore you need to manually execute sdk-tools/cmake/lib/boringssl/build.sh to build libcrypto and libssl
 
 adb dosen't support --fastdeploy option, because I don't know how to manually generate deployagent.inc and deployagentscript.inc header files
 
 If anyone knows, please submit to issue
 
 ```bash
-// from aosp/system/core/adb/Android.bp
+// from aosp/packages/modules/adb/Android.bp
 // Note: using pipe for xxd to control the variable name generated
 // the default name used by xxd is the path to the input file.
 java_genrule {
